@@ -1,23 +1,38 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { 
+  StyleSheet,
+  Text, 
+  View,
+} from 'react-native'
+import {createStore} from 'redux'
+import { Provider } from 'react-redux'
 
-export default class App extends React.Component {
+import reducer from './src/reducers'
+
+import { purple } from './src/utils/colors'
+
+import { Tabs} from './src/components/Navigation'
+import UdaciStatusBar from './src/components/Navigation/statusBar'
+
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <Provider store={createStore(reducer)}>
+        <View style={styles.container}>
+          <UdaciStatusBar backgroundColor={purple} barStyle='light-content' />
+          <Tabs />
+        </View>
+      </Provider>
     );
   }
 }
 
+// this creates our styles for specific views
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-});
+  statusBar: {
+    
+  }
+})
