@@ -47,6 +47,7 @@ $ npm start (or yarn start)
 
 ## To Do's - v0.1
 (to be completed after v0.1)
+- implement base testing instructions in this document
 
 ## Known Bugs
 - Application live version showing an error due to bundle.js compression.

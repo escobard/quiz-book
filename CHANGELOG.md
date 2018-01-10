@@ -6,4 +6,3 @@
 
 	TODO:
 	- create base react-redux / ublitz file structure
-	- import dependencies - from classroom project
