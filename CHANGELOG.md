@@ -2,11 +2,12 @@
 
 ## v0.2
 	- TODO:
+		+ create static data
+
+	- COMPLETED:
 		+ create base components including:
 			- navigation
 			- base views
-			- static data
-		+ update README with v0.1 changes
 
 ## v0.1 
 	COMPLETED:
