@@ -7,20 +7,29 @@ import {
 import {createStore} from 'redux'
 import { Provider } from 'react-redux'
 
-import reducer from './reducers'
+import reducer from './src/reducers'
+
+import { purple } from './src/utils/colors'
+
+import { Tabs} from './src/components/Navigation'
+import UdaciStatusBar from './src/components/Navigation/statusBar'
 
 export default class App extends Component {
-  componentDidMount(){
-    setLocalNotification()
-  }
   render() {
     return (
       <Provider store={createStore(reducer)}>
         <View style={styles.container}>
           <UdaciStatusBar backgroundColor={purple} barStyle='light-content' />
-          <MainNavigator />
+          <Tabs />
         </View>
       </Provider>
     );
   }
 }
+
+// this creates our styles for specific views
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  }
+})
