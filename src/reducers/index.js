@@ -1,7 +1,14 @@
 import { combineReducers } from 'redux';
 
-//import usersReducer from './users';
+import { quizData } from '../constants';
 
-export default function rootReducer(state = {}, action){
-	return state;
+function quizList(state=quizData, action) {
+	console.log('REDUCER STATE', state)
+	return state;	
 }
+
+const rootReducer = combineReducers({
+  quizList
+});
+
+export default rootReducer;
