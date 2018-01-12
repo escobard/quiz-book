@@ -2,12 +2,14 @@
 
 ## v0.3
 	- TODO:
-		+ hook up redux
 		+ create base components including:
-			- Quiz list
-			- Add Quiz
-			- Base Quiz
+			- QuizList
+			- QuizItem
+			- AddQuiz
+			- Quiz
 		+ create base navigation for quiz list and quiz components
+	- COMPLETED:
+		+ hook up redux
 
 ## v0.2
 	- COMPLETED:

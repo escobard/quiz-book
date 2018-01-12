@@ -13,6 +13,7 @@ export default class QuizItem extends Component {
 			<TouchableOpacity onPress={this.onPress}>
 				<View>
 					<Text>{title}</Text>
+					<Text>{questions.length}</Text>
 				</View>
 			</TouchableOpacity>
 		)
