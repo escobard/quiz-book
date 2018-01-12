@@ -18,8 +18,13 @@ const newTest = {React2: {
 
 function quizList(state=quizData, action) {
 	console.log('REDUCER STATE', state)
-	state = Object.entries(state);
-	return {...state, ...newTest}
+	let obj = {...state, ...newTest}
+
+	// returns a sorted array with ES6
+	// return Object.keys(obj).map(key => obj[key]);
+
+	// returns a sorted array with ES7
+	return Object.values(obj)
 }
 
 const rootReducer = combineReducers({
