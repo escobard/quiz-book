@@ -11,12 +11,11 @@ class QuizList extends Component {
 	render(){
 		let { quizList } = this.props
 		console.log('QUIZLIST', this.props)
-		console.log('object keys', Object.entries(this.props.quizList))
+
 		return (
 
 			<View>
 				<Text> Quiz List view</Text>
-				{this.renderView(quizList)}
 			</View>
 
 		)
