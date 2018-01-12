@@ -1,20 +1,37 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity} from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native'
+
+import {styles} from './styles'
 
 export default class QuizForm extends Component {
+	
+	state={
+		quizName: ''
+	}
+
 	onPress(){
 		// will contain the prop for navigating to each quiz
 		console.log('PRESSED')
 	}
+
+	handleTextChange(){
+
+	}
+	
 	render(){
 
+		let { quizName } = this.state
+
 		return(
-			<TouchableOpacity onPress={this.onPress}>
-				<View>
-					<Text>TEST</Text>
-					<Text>TEST</Text>
-				</View>
-			</TouchableOpacity>
+			<KeyboardAvoidingView behavior='padding' style={styles.container}>
+				<TextInput 
+	                value={quizName} 
+	                style={styles.input} 
+	                onChangeText={this.handleTextChange} />
+				<TouchableOpacity onPress={this.onPress}>
+					<Text>Add Quiz</Text>
+				</TouchableOpacity>
+			</KeyboardAvoidingView>
 		)
 	}
 }
