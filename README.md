@@ -54,7 +54,6 @@ $ npm start (or yarn start)
 			- AddQuiz
 			- Quiz
 
-
 ## Other Updates
 
 ### v0.2
@@ -97,4 +96,5 @@ All files in this repository are protected under the MIT license, but feel free 
 For commercial or educational use, please paste a link to this repository to give proper credit.
 
 ## License
+
 As of January 9th, 2018, these files are open for all to use and contribute to. This repository is protected under the [MIT License](http://choosealicense.com/licenses/mit/).

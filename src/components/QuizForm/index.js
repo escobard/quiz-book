@@ -14,9 +14,12 @@ export default class QuizForm extends Component {
 		console.log('PRESSED')
 	}
 
-	handleTextChange(){
-
-	}
+	  handleTextChange =(quizName ) =>{
+	  	console.log('INPUT', quizName )
+	    this.setState({
+	      quizName 
+	    })
+	  }
 	
 	render(){
 

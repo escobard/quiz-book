@@ -23,7 +23,6 @@ export const styles = StyleSheet.create({
     color: '#fff'
   },
   input: {
-    width: 200,
     height: 44,
     padding: 8,
     borderWidth: 1,
