@@ -11,7 +11,7 @@ class QuizList extends Component {
 	}
 
 	renderQuiz({item, key}){
-		console.log('QUIZ WITHIN LOOP', item.title)
+		// console.log('QUIZ WITHIN LOOP', item.title)
 		return (
 			<QuizItem id={key} quiz={item}/>
 

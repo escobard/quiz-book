@@ -8,7 +8,7 @@ class Quiz extends Component {
 
 		let {title, questions} = this.props.quiz
 		let cardNumber = questions.length
-		let numberText = questions.length ? 'No cards' : questions.length > 1 ? 'Cards' : 'Card'
+		let numberText = !questions.length ? 'No cards' : questions.length > 1 ? 'Cards' : 'Card'
 
 		return(
 			<View>

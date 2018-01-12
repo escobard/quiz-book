@@ -1,23 +1,10 @@
 import { combineReducers } from 'redux';
 
-import { quizData } from '../constants';
+import { quizData, newTest } from '../constants';
 
-const newTest = {React2: {
-	    title: 'React2',
-	    questions: [
-	      {
-	        question: 'What is React?',
-	        answer: 'A library for managing user interfaces'
-	      },
-	      {
-	        question: 'Where do you make Ajax requests in React?',
-	        answer: 'The componentDidMount lifecycle event'
-	      }
-	    ]
-	  }}
 
 function quizList(state=quizData, action) {
-	console.log('REDUCER STATE', state)
+	// console.log('REDUCER STATE', state)
 	let obj = {...state, ...newTest}
 
 	// returns a sorted array with ES6
