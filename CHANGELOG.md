@@ -7,6 +7,7 @@
 			- Quiz list
 			- Add Quiz
 			- Base Quiz
+		+ create base navigation for quiz list and quiz components
 
 ## v0.2
 	- COMPLETED:

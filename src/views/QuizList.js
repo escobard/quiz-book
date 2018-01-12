@@ -1,24 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import { connect } from 'react-redux'
 
-class QuizItem extends Component {
-	onPress(){
-		// will contain the prop for navigating to each quiz
-		console.log('PRESSED')
-	}
-	render(){
-		let {title, questions} = this.props
-
-		return(
-			<TouchableOpacity onPress={this.onPress}>
-				<View>
-					<Text>TEST</Text>
-				</View>
-			</TouchableOpacity>
-		)
-	}
-}
+import QuizItem from '../components/QuizItem'
 
 class QuizList extends Component {
 
@@ -27,16 +11,15 @@ class QuizList extends Component {
 	}
 
 	renderQuiz({item, key}){
-		console.log('QUIZ WITHIN LOOP', item)
+		console.log('QUIZ WITHIN LOOP', item.title)
 		return (
-			<QuizItem id={key} props={item}/>
+			<QuizItem id={key} quiz={item}/>
 
 		)
 	}
 
 	render(){
 		let { quizList } = this.props
-		console.log('QUIZLIST', quizList[2])
 
 		return (
 			<FlatList 
