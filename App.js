@@ -9,7 +9,7 @@ import { Provider } from 'react-redux'
 
 import reducer from './src/reducers'
 
-import { purple } from './src/utils/colors'
+import { colors } from './src/styles'
 
 import { Tabs} from './src/components/Navigation'
 import UdaciStatusBar from './src/components/Navigation/statusBar'
@@ -19,7 +19,7 @@ export default class App extends Component {
     return (
       <Provider store={createStore(reducer)}>
         <View style={styles.container}>
-          <UdaciStatusBar backgroundColor={purple} barStyle='light-content' />
+          <UdaciStatusBar backgroundColor={colors.purple} barStyle='light-content' />
           <Tabs />
         </View>
       </Provider>
@@ -32,7 +32,4 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  statusBar: {
-    
-  }
 })
