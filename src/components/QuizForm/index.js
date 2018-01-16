@@ -28,9 +28,10 @@ export default class QuizForm extends Component {
 
 		return(
 			<KeyboardAvoidingView behavior='padding' style={styles.container}>
-				
+				<Text style={styles.title}>Add a Quiz</Text>
 				<TextInput 
 	                value={quizName} 
+	                placeholder={'Enter a quiz name'}
 	                style={styles.input} 
 	                onChangeText={this.handleTextChange} />
 

@@ -1,31 +1,38 @@
 
 import { StyleSheet } from 'react-native'
 
+import { colors, fonts, space } from '../../styles'
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    marginLeft:10,
-    marginRight: 10,
+    backgroundColor: colors.white,
+    marginLeft: space.small,
+    marginRight: space.small,
     alignItems: 'stretch',
     justifyContent: 'center',
   },
+  title: {
+    fontSize: fonts.title,
+  },
   btn: {
-    backgroundColor: '#E53224',
-    padding: 10,
-    paddingLeft: 50,
-    paddingRight: 50,
+    backgroundColor: colors.orange,
+    padding: space.small,
+    paddingLeft: space.xlrg,
+    paddingRight: space.xlrg,
     justifyContent : 'center',
     alignItems: 'center',
-    borderRadius: 5
+    borderRadius: space.xsmall,
   },
   btnText: {
-    color: '#fff'
+    color: colors.white,
   },
   input: {
-    height: 44,
-    padding: 8,
-    borderWidth: 1,
-    borderColor: '#757575',
+    marginTop: space.med,
+    marginBottom: space.med,
+    height: space.xlrg,
+    padding: space.small,
+    borderWidth: space.xxxsmall,
+    borderColor: colors.darkGray,
   }
 });
