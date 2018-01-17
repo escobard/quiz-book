@@ -1,32 +1,13 @@
 
 import { StyleSheet } from 'react-native'
 
+import { common } from '../../styles'
+
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    marginLeft:10,
-    marginRight: 10,
-    alignItems: 'stretch',
-    justifyContent: 'center',
-  },
-  btn: {
-    backgroundColor: '#E53224',
-    padding: 10,
-    paddingLeft: 50,
-    paddingRight: 50,
-    justifyContent : 'center',
-    alignItems: 'center',
-    borderRadius: 5
-  },
-  btnText: {
-    color: '#fff'
-  },
-  input: {
-    width: 200,
-    height: 44,
-    padding: 8,
-    borderWidth: 1,
-    borderColor: '#757575',
-  }
+  container: common.container,
+  title: common.title,
+  subtitle: common.subtitle,
+  btn: common.btn,
+  btnText: common.btnText,
+  input: common.input
 });

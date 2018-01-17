@@ -42,27 +42,36 @@ $ npm start (or yarn start)
 ```
 
 
-## Most Recent Update - v0.2
+## Most Recent Update - v0.3
 
-## v0.2
+### v0.3
+
+	- COMPLETED:
+		+ connect redux
+		+ create base components including:
+			- QuizList
+			- QuizItem
+			- AddQuiz
+			- Quiz
+
+## Other Updates
+
+### v0.2
 	- COMPLETED:
 		+ create base components including:
 			- navigation
 			- base views
 		+ create static data
 
-## v0.1 
+### v0.1 
 	COMPLETED:
 		- installed boilerplate
 		- create base react-redux / ublitz file structure
 
-## To Do's - v0.3
+## To Do's - v0.4
 	- TODO:
-		+ hook up redux
-		+ create base components including:
-			- Quiz list
-			- Add Quiz
-			- Base Quiz
+		+ create base navigation for quiz list and quiz components
+		+ style base components 
 
 ## Known Bugs
 - Application live version showing an error due to bundle.js compression.
@@ -87,4 +96,5 @@ All files in this repository are protected under the MIT license, but feel free 
 For commercial or educational use, please paste a link to this repository to give proper credit.
 
 ## License
+
 As of January 9th, 2018, these files are open for all to use and contribute to. This repository is protected under the [MIT License](http://choosealicense.com/licenses/mit/).

@@ -5,15 +5,21 @@ import { connect } from 'react-redux'
 import QuizItem from '../components/QuizItem'
 
 class QuizList extends Component {
+	
+	constructor(props) {
+		super(props)
+		this.renderQuiz = this.renderQuiz.bind(this);
 
-	goToDeck(){
-		// will contain nav handler for each quiz
+	}
+
+	goToDeck(nav, quiz){
+		nav.navigate('QuizDetail',{quiz})
 	}
 
 	renderQuiz({item, key}){
 		// console.log('QUIZ WITHIN LOOP', item.title)
 		return (
-			<QuizItem id={key} quiz={item}/>
+			<QuizItem id={key} quiz={item} nav={() => this.goToDeck(this.props.navigation, item)}/>
 
 		)
 	}

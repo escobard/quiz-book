@@ -1,15 +1,20 @@
 # CHANGELOG - Mobile Flashcards - react-native && react-redux  
 
-## v0.3
+## v0.4
 	- TODO:
+		+ create base navigation for quiz list and quiz components
+		+ style base components 
+
+## v0.3
+
+	
+	- COMPLETED:
+		+ connect redux
 		+ create base components including:
 			- QuizList
 			- QuizItem
 			- AddQuiz
 			- Quiz
-		+ create base navigation for quiz list and quiz components
-	- COMPLETED:
-		+ hook up redux
 
 ## v0.2
 	- COMPLETED:

@@ -9,13 +9,17 @@ export default class QuizForm extends Component {
 		quizName: ''
 	}
 
-	onPress(){
-		// will contain the prop for navigating to each quiz
-		console.log('PRESSED')
+	handleTextChange = (quizName) =>{
+	  	console.log('INPUT', quizName )
+	    this.setState({
+	      quizName 
+	    })
 	}
-
-	handleTextChange(){
-
+	
+	handleAddQuiz =(quizName) =>{
+	  	
+	  	// will contain the prop for navigating to each quiz
+		console.log('PRESSED', quizName);
 	}
 	
 	render(){
@@ -24,13 +28,19 @@ export default class QuizForm extends Component {
 
 		return(
 			<KeyboardAvoidingView behavior='padding' style={styles.container}>
+				<Text style={styles.title}>Create a Quiz</Text>
 				<TextInput 
 	                value={quizName} 
+	                placeholder={'Enter a quiz name'}
 	                style={styles.input} 
 	                onChangeText={this.handleTextChange} />
-				<TouchableOpacity onPress={this.onPress}>
-					<Text>Add Quiz</Text>
+
+				<TouchableOpacity 
+					style={styles.btn}
+					onPress={this.handleAddQuiz}>
+						<Text style={styles.btnText}>Add Quiz</Text>
 				</TouchableOpacity>
+
 			</KeyboardAvoidingView>
 		)
 	}
