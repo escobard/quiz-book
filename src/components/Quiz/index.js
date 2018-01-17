@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { connect } from 'react-redux'
+
+import { styles } from './styles'
 
 export default class Quiz extends Component {
 
@@ -11,8 +12,8 @@ export default class Quiz extends Component {
 		let numberText = !questions.length ? 'No cards' : questions.length > 1 ? 'Cards' : 'Card'
 
 		return(
-			<View>
-				<Text>{title}</Text>
+			<View style={styles.container}>
+				<Text style={styles.title}>{title}</Text>
 				<Text>{cardNumber} {numberText}</Text>
 				<TouchableOpacity>
 					<Text>Add Card</Text>

@@ -7,19 +7,18 @@ import Quiz from '../components/Quiz'
 class QuizDetail extends Component {
 
 	render(){
-
+		console.log('PROPS', this.props)
+		// this should be refactored into a reducer later
+		let passedQuiz = this.props.navigation.state.params.quiz
 		return(
-			<View>
-				<Quiz quiz={this.props.quiz} />
-			</View>
+				<Quiz quiz={passedQuiz} />
 		)
 	}
 }
 
 function mapStateToProps({quizList}){
-
 	// will be modified to work with individual quizes instead of base constant
-	return {quiz: quizList[0]}
+	return {quizPlaceholder: quizList[0]}
 }
 
 export default connect(mapStateToProps)(QuizDetail)

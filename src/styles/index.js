@@ -36,6 +36,12 @@ export const common ={
 	    alignItems: 'stretch',
 	    justifyContent: 'center',
 	},
+	centeredContainer: {
+		flex: 1,
+		alignItems: 'center',
+		flexDirection: 'column',
+		justifyContent: 'center',
+	},
 	title: {
 	    height: space.xlrg,
 	    textAlign: 'center',
