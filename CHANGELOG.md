@@ -1,7 +1,15 @@
 # CHANGELOG - Mobile Flashcards - react-native && react-redux  
 
-## v0.4
+##v0.5
 	- TODO:
+		+ style & create navigation for:
+			- QuizDetail
+			- AddCard
+			- CardView
+			- ScoreView
+
+## v0.4
+	- COMPLETED:
 		+ create base navigation for quiz list and quiz components
 		+ style base components 
 

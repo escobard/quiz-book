@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
-class Quiz extends Component {
+export default class Quiz extends Component {
 
 	render(){
 
@@ -14,21 +14,13 @@ class Quiz extends Component {
 			<View>
 				<Text>{title}</Text>
 				<Text>{cardNumber} {numberText}</Text>
-				<TouchableOpacity onPress={}>
+				<TouchableOpacity>
 					<Text>Add Card</Text>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={}>
+				<TouchableOpacity>
 					<Text>Start Quiz</Text>
 				</TouchableOpacity>
 			</View>
 		)
 	}
 }
-
-function mapStateToProps({quizList}){
-
-	// will be modified to work with individual quizes instead of base constant
-	return {quiz: quizList[0]}
-}
-
-export default connect(mapStateToProps)(Quiz)
