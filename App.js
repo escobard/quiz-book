@@ -11,7 +11,7 @@ import reducer from './src/reducers'
 
 import { colors } from './src/styles'
 
-import { Tabs} from './src/components/Navigation'
+import { MainNavigator } from './src/components/Navigation'
 import UdaciStatusBar from './src/components/Navigation/statusBar'
 
 export default class App extends Component {
@@ -20,7 +20,7 @@ export default class App extends Component {
       <Provider store={createStore(reducer)}>
         <View style={styles.container}>
           <UdaciStatusBar backgroundColor={colors.purple} barStyle='light-content' />
-          <Tabs />
+          <MainNavigator />
         </View>
       </Provider>
     );
