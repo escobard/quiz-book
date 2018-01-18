@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity } from 'react-native'
 
 import { styles } from './styles'
 
+import { Title, Container, Button } from '../Common'
+
 export default class Quiz extends Component {
 
 	render(){
@@ -12,20 +14,12 @@ export default class Quiz extends Component {
 		let numberText = !questions.length ? 'No cards' : questions.length > 1 ? 'Cards' : 'Card'
 
 		return(
-			<View style={styles.container}>
-				<Text style={styles.title}>{title}</Text>
-				<Text style={styles.subtitle}>{cardNumber} {numberText}</Text>
-				<TouchableOpacity style={styles.btn}>
-					<Text style={styles.btnText}>
-						Add Card
-					</Text>
-				</TouchableOpacity>
-				<TouchableOpacity style={styles.btn}>
-					<Text style={styles.btnText}>
-						Start Quiz
-					</Text>
-				</TouchableOpacity>
-			</View>
+			<Container>
+				<Title text={title}/>
+				<Title isSubtitle={true} text={`${cardNumber} ${numberText}`}/>
+				<Button text={'Add Card'}/>
+				<Button text={'Start Quiz'}/>
+			</Container>
 		)
 	}
 }
