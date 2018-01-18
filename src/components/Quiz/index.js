@@ -14,12 +14,16 @@ export default class Quiz extends Component {
 		return(
 			<View style={styles.container}>
 				<Text style={styles.title}>{title}</Text>
-				<Text>{cardNumber} {numberText}</Text>
-				<TouchableOpacity>
-					<Text>Add Card</Text>
+				<Text style={styles.subtitle}>{cardNumber} {numberText}</Text>
+				<TouchableOpacity style={styles.btn}>
+					<Text style={styles.btnText}>
+						Add Card
+					</Text>
 				</TouchableOpacity>
-				<TouchableOpacity>
-					<Text>Start Quiz</Text>
+				<TouchableOpacity style={styles.btn}>
+					<Text style={styles.btnText}>
+						Start Quiz
+					</Text>
 				</TouchableOpacity>
 			</View>
 		)

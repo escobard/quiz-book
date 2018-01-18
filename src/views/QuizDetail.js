@@ -6,8 +6,16 @@ import Quiz from '../components/Quiz'
 
 class QuizDetail extends Component {
 
+	static navigationOptions = ({ navigation }) => {
+		const quizTitle = navigation.state.params.quiz.title
+
+		return {
+			title: quizTitle
+		}
+	}
+	
 	render(){
-		console.log('PROPS', this.props)
+		console.log('PROPS', this.props)		
 		// this should be refactored into a reducer later
 		let passedQuiz = this.props.navigation.state.params.quiz
 		return(
