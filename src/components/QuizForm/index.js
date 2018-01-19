@@ -3,6 +3,8 @@ import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView} from 're
 
 import {styles} from './styles'
 
+import { Container, Title, Button, Input } from '../Common'
+
 export default class QuizForm extends Component {
 	
 	state={
@@ -27,21 +29,14 @@ export default class QuizForm extends Component {
 		let { quizName } = this.state
 
 		return(
-			<KeyboardAvoidingView behavior='padding' style={styles.container}>
-				<Text style={styles.title}>Create a Quiz</Text>
-				<TextInput 
-	                value={quizName} 
-	                placeholder={'Enter a quiz name'}
-	                style={styles.input} 
+			<Container formContainer={true}>
+				<Title text={'Create a Quiz'} addStyles={styles.addHeight}/>
+				<Input 
+	                input={quizName} 
+	                placeholder={'Give your quiz a name!'}
 	                onChangeText={this.handleTextChange} />
-
-				<TouchableOpacity 
-					style={styles.btn}
-					onPress={this.handleAddQuiz}>
-						<Text style={styles.btnText}>Add Quiz</Text>
-				</TouchableOpacity>
-
-			</KeyboardAvoidingView>
+	            <Button text={'Add Quiz'} handler={this.handleAddQuiz} addStyles={styles.addMargin}/>
+			</Container>
 		)
 	}
 }

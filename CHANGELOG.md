@@ -7,6 +7,7 @@
 			- AddCard
 			- CardView
 			- ScoreView
+		+ refactor component elements for better syntax structure
 
 ## v0.4
 	- COMPLETED:

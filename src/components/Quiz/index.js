@@ -16,7 +16,7 @@ export default class Quiz extends Component {
 		let numberText = checkNumber(questions.length, true)
 
 		return(
-			<Container>
+			<Container addStyles={styles.centered}>
 				<Title text={title}/>
 				<Title isSubtitle={true} text={`${cardNumber} ${numberText}`}/>
 				<Button text={'Add Card'}/>
