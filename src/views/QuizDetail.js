@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
-import Quiz from '../components/Quiz'
+import QuizOverview from '../components/QuizOverview'
 
-class QuizDetail extends Component {
+class QuizOverviewDetail extends Component {
 
 	static navigationOptions = ({ navigation }) => {
 		const quizTitle = navigation.state.params.quiz.title
@@ -17,9 +17,9 @@ class QuizDetail extends Component {
 	render(){
 		console.log('PROPS', this.props)		
 		// this should be refactored into a reducer later
-		let passedQuiz = this.props.navigation.state.params.quiz
+		let passedQuizOverview = this.props.navigation.state.params.quiz
 		return(
-				<Quiz quiz={passedQuiz} />
+				<QuizOverview quiz={passedQuizOverview} />
 		)
 	}
 }
@@ -29,4 +29,4 @@ function mapStateToProps({quizList}){
 	return {quizPlaceholder: quizList[0]}
 }
 
-export default connect(mapStateToProps)(QuizDetail)
+export default connect(mapStateToProps)(QuizOverviewDetail)

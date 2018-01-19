@@ -13,7 +13,7 @@ export const Tabs = TabNavigator({
 	QuizList: {
 		screen: QuizList,
 		navigationOptions: {
-			tabBarLabel: 'History',
+			tabBarLabel: 'Quiz List',
 			tabBarIcon: ({tintColor}) => <Ionicons name="ios-bookmarks" size={30} color={tintColor} />
 		}
 	},
