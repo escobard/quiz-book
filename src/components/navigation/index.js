@@ -4,10 +4,11 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 
 import { purple, white } from '../../utils/colors'
 
-import QuizList from '../../views/QuizList'
 import AddQuiz from '../../views/AddQuiz'
+import AddCard from '../../views/AddCard'
 import QuizDetail from '../../views/QuizDetail'
-
+import QuizList from '../../views/QuizList'
+import Quiz from '../../views/Quiz'
 
 export const Tabs = TabNavigator({
 	QuizList: {
@@ -44,6 +45,7 @@ export const Tabs = TabNavigator({
 			}
 		}
 })
+
 export const MainNavigator = StackNavigator({
 	Home: {
 		screen: Tabs,
@@ -56,5 +58,24 @@ export const MainNavigator = StackNavigator({
 				backgroundColor: purple,
 			}
 		}
-	}
+	},
+	AddCard: {
+		screen: AddCard,
+		navigationOptions: {
+			headerTintColor: white,
+			headerStyle: {
+				backgroundColor: purple,
+			}
+		}
+	},
+	Quiz: {
+		screen: Quiz,
+		navigationOptions: {
+			headerTintColor: white,
+			headerStyle: {
+				backgroundColor: purple,
+			}
+		}
+	},
+
 })
