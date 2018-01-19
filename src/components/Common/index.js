@@ -32,9 +32,22 @@ export class Input extends Component{
 	}
 }
 
-export const Button = ({text, handler, addStyles}) => {
+export const Button = ({text, btnText, handler, addStyles, isQuizItem}) => {
 
 	let onTouch = handler ? handler : console.log('PRESSED')
+
+	if (isQuizItem) {
+		return(
+
+			<TouchableOpacity style={styles.container} onPress={handler}>
+				<View style={styles.btn}>
+					<Text style={[styles.subtitle, addStyles]}>{text}</Text>
+					<Text style={styles.btnText}>{btnText}</Text>
+				</View>
+			</TouchableOpacity>
+
+		)
+	}
 
 	return (
 
