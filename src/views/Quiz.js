@@ -1,34 +1,22 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
 
+// import Card from '../components/Quiz'
+
 class Quiz extends Component {
-
 	render(){
-
-		let {title, questions} = this.props.quiz
-		let cardNumber = questions.length
-		let numberText = !questions.length ? 'No cards' : questions.length > 1 ? 'Cards' : 'Card'
-
-		return(
-			<View>
-				<Text>{title}</Text>
-				<Text>{cardNumber} {numberText}</Text>
-				<TouchableOpacity onPress={}>
-					<Text>Add Card</Text>
-				</TouchableOpacity>
-				<TouchableOpacity onPress={}>
-					<Text>Start Quiz</Text>
-				</TouchableOpacity>
-			</View>
-		)
+		/*
+		return (
+			<Card />
+		) */
 	}
 }
 
-function mapStateToProps({quizList}){
+function mapStateToProps(state){
 
-	// will be modified to work with individual quizes instead of base constant
-	return {quiz: quizList[0]}
+	// no state to pass yet, but will pass all for now to complete redux connection
+	return {state}
 }
 
 export default connect(mapStateToProps)(Quiz)

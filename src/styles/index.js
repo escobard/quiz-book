@@ -25,16 +25,23 @@ export const space ={
 	med : 20,
 	lrg : 30,
 	xlrg : 50,
+	xxlrg: 75
 }
 
 export const common ={
 	container: {
 	    flex: 1,
 	    backgroundColor: colors.white,
-	    marginLeft: space.small,
-	    marginRight: space.small,
+	    paddingLeft: space.small,
+	    paddingRight: space.small,
 	    alignItems: 'stretch',
 	    justifyContent: 'center',
+	},
+	centeredContainer: {
+		flex: 1,
+		alignItems: 'center',
+		flexDirection: 'column',
+		justifyContent: 'center',
 	},
 	title: {
 	    height: space.xlrg,
@@ -64,6 +71,7 @@ export const common ={
 	    borderRadius: space.xxsmall,
 	    borderWidth: space.xxxsmall,
 	    borderColor: colors.darkGray,
+	    alignItems: 'stretch',
 	}
 }
 
