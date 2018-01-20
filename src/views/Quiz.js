@@ -6,10 +6,11 @@ import { connect } from 'react-redux'
 
 class Quiz extends Component {
 	render(){
-		/*
 		return (
-			<Card />
-		) */
+			<View>
+				<Text> CARD VIEW</Text>
+			</View>
+		)
 	}
 }
 

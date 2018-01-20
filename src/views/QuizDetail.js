@@ -22,8 +22,8 @@ class QuizDetail extends Component {
 	addCard(nav, quiz){
 		nav.navigate('AddCard', quiz)
 	}
-	goBack(){
-		console.log('TEST')
+	startQuiz(nav, quiz){
+		nav.navigate('Quiz', quiz)
 	}
 	render(){
 		// this should be refactored into a reducer later
@@ -33,7 +33,7 @@ class QuizDetail extends Component {
 		return(
 				<QuizOverview
 					addCard={() => this.addCard(navigation, passedQuiz)} 
-				 	goBack={() => this.goBack()} 
+				 	goBack={() => this.startQuiz(navigation, passedQuiz)} 
 				 	quiz={passedQuiz} 
 				/>
 		)
