@@ -2,45 +2,30 @@ import React, { Component } from 'react'
 import { FlatList } from 'react-native'
 import { connect } from 'react-redux'
 
-// import Quiz from '../components/Quiz'
+import CardForm from '../components/CardForm'
 
 class AddCard extends Component {
-	
+	constructor(props) {
+		super(props)
+
+	}
+
 	static navigationOptions = () => {
 		return {
 			title: 'Add a card'
 		}
 	}
 
-	constructor(props) {
-		super(props)
-
-	}
-
 	goToDeck(nav, quiz){
 		nav.navigate('QuizDetail',{quiz})
 	}
 
-	renderCard({item, key}){
-		// console.log('QUIZ WITHIN LOOP', item.title)
-		/*
-		return (
-			<Quiz id={key} quiz={item} nav={() => this.goToDeck(this.props.navigation, item)}/>
-
-		) */
-	}
-
 	render(){
 		let { quizList } = this.props
-
+		
 		return (
 			
-			<FlatList 
-				data={quizList}
-				keyExtractor={quiz => quiz.title}
-				renderItem={this.renderQuiz}
-				style={{backgroundColor: 'white'}}
-			/>
+			<CardForm />
 
 		)
 	}
