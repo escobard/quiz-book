@@ -30,8 +30,6 @@ class QuizDetail extends Component {
 		let { navigation } = this.props		
 		let passedQuiz = navigation.state.params.quiz
 
-		console.log('props in details', this.props)
-
 		return(
 				<QuizOverview
 					addCard={() => this.addCard(navigation, passedQuiz)} 

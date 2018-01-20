@@ -25,20 +25,11 @@ export default class QuizForm extends Component {
 	      cardAnswer 
 	    })
 	}
-	
-	handleAddQuiz(cardName){
-	  	
-		console.log('PRESSED');
-	}
 
-	handleCancel(cardName){
-	  	
-		console.log('PRESSED');
-	}
-	
 	render(){
 
 		let { cardName, cardAnswer } = this.state
+		let { goBack, addCard} = this.props
 
 		return(
 			<Container formContainer={true}>
@@ -51,8 +42,8 @@ export default class QuizForm extends Component {
 	                placeholder={"What's the answer to the card's question?"}
 	                onChangeText={this.answerInput}
 	                addStyles={styles.addMargin} />
-	            <Button text={'Add Card'} handler={this.handleAddQuiz}/>
-	           	<Button text={'Cancel'} handler={this.handleCancel}/>
+	            <Button text={'Add Card'} handler={addCard}/>
+	           	<Button text={'Cancel'} handler={goBack}/>
 			</Container>
 		)
 	}

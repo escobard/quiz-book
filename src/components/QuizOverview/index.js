@@ -14,7 +14,6 @@ export default class Quiz extends Component {
 		let {title, questions} = quiz
 		let cardNumber = checkNumber(questions.length)
 		let numberText = checkNumber(questions.length, true)
-		console.log('props within overview', this.props)
 
 		return(
 			<Container addStyles={styles.centered}>

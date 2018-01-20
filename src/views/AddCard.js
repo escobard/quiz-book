@@ -19,16 +19,24 @@ class AddCard extends Component {
 		}
 	}
 
-	goToDeck(nav, quiz){
-		nav.navigate('QuizDetail',{quiz})
+	goBack(nav){
+		nav.goBack();
+	}
+
+	addCard(nav, quiz){
+
+		// this will also need to handle the add to deck action
+		nav.goBack();
 	}
 
 	render(){
-		let { quizList } = this.props
+
+		let { navigation } = this.props
+		console.log('PROPS', this.props)
 
 		return (
 			
-			<CardForm />
+			<CardForm goBack={() => this.goBack(navigation)} addCard={() => this.addCard(navigation)}/>
 
 		)
 	}
@@ -37,4 +45,5 @@ class AddCard extends Component {
 function mapStateToProps({quizList}){
 	return {quizList}
 }
+
 export default connect(mapStateToProps)(AddCard);
