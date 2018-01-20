@@ -14,7 +14,6 @@ class AddCard extends Component {
 
 	constructor(props) {
 		super(props)
-		this.renderQuiz = this.renderQuiz.bind(this);
 
 	}
 

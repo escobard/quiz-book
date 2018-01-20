@@ -4,7 +4,12 @@ import { connect } from 'react-redux'
 
 import QuizOverview from '../components/QuizOverview'
 
-class QuizOverviewDetail extends Component {
+class QuizDetail extends Component {
+
+	constructor(props) {
+		super(props)
+
+	}
 
 	static navigationOptions = ({ navigation }) => {
 		const quizTitle = navigation.state.params.quiz.title
@@ -13,13 +18,26 @@ class QuizOverviewDetail extends Component {
 			title: quizTitle
 		}
 	}
-	
+
+	addCard(nav, quiz){
+		nav.navigate('AddCard', quiz)
+	}
+	goBack(){
+		console.log('TEST')
+	}
 	render(){
-		console.log('PROPS', this.props)		
 		// this should be refactored into a reducer later
-		let passedQuizOverview = this.props.navigation.state.params.quiz
+		let { navigation } = this.props		
+		let passedQuiz = navigation.state.params.quiz
+
+		console.log('props in details', this.props)
+
 		return(
-				<QuizOverview quiz={passedQuizOverview} />
+				<QuizOverview
+					addCard={() => this.addCard(navigation, passedQuiz)} 
+				 	goBack={() => this.goBack()} 
+				 	quiz={passedQuiz} 
+				/>
 		)
 	}
 }
@@ -29,4 +47,4 @@ function mapStateToProps({quizList}){
 	return {quizPlaceholder: quizList[0]}
 }
 
-export default connect(mapStateToProps)(QuizOverviewDetail)
+export default connect(mapStateToProps)(QuizDetail)

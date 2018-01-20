@@ -52,7 +52,7 @@ export const Button = ({text, btnText, handler, addStyles, isQuizItem}) => {
 	return (
 
 
-		<TouchableOpacity style={[styles.btn, addStyles]} onPress={()=> onTouch}>
+		<TouchableOpacity style={[styles.btn, addStyles]} onPress={handler}>
 			<Text style={styles.btnText}>
 				{text}
 			</Text>
