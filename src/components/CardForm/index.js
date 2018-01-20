@@ -12,14 +12,14 @@ export default class QuizForm extends Component {
 		cardAnswer: ''
 	}
 
-	cardInput(cardName){
-	  	console.log('INPUT', cardName )
+	cardInput = (cardName) => {
+	  	console.log('INPUT', cardName)
 	    this.setState({
 	      cardName 
 	    })
 	}
 
-	answerInput(cardAnswer){
+	answerInput = (cardAnswer) => {
 		console.log('ANSWER INPUT', cardAnswer)
 		this.setState({
 	      cardAnswer 
@@ -28,7 +28,6 @@ export default class QuizForm extends Component {
 	
 	handleAddQuiz(cardName){
 	  	
-	  	// will contain the prop for navigating to each quiz
 		console.log('PRESSED');
 	}
 
@@ -43,17 +42,17 @@ export default class QuizForm extends Component {
 
 		return(
 			<Container formContainer={true}>
-				<Title text={''} addStyles={styles.addHeight}/>
 				<Input 
 	                input={cardName} 
-	                placeholder={'Type the answer for your card!'}
+	                placeholder={"Enter the name of your card"}
 	                onChangeText={this.cardInput} />
 	            <Input 
 	                input={cardAnswer} 
 	                placeholder={"What's the answer to the card's question?"}
-	                onChangeText={this.answerInput} />
-	            <Button text={'Add Quiz'} handler={this.handleAddQuiz} addStyles={styles.addMargin}/>
-	           	<Button text={'Cancel'} handler={this.handleCancel} addStyles={styles.addMargin}/>
+	                onChangeText={this.answerInput}
+	                addStyles={styles.addMargin} />
+	            <Button text={'Add Card'} handler={this.handleAddQuiz}/>
+	           	<Button text={'Cancel'} handler={this.handleCancel}/>
 			</Container>
 		)
 	}

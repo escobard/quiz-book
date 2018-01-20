@@ -7,10 +7,13 @@ import CardForm from '../components/CardForm'
 class AddCard extends Component {
 	constructor(props) {
 		super(props)
-
+		this.state={
+			test:''
+		}
 	}
 
-	static navigationOptions = () => {
+	static navigationOptions(){
+
 		return {
 			title: 'Add a card'
 		}
@@ -22,7 +25,7 @@ class AddCard extends Component {
 
 	render(){
 		let { quizList } = this.props
-		
+
 		return (
 			
 			<CardForm />

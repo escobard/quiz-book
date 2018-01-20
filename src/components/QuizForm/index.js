@@ -18,7 +18,7 @@ export default class QuizForm extends Component {
 	    })
 	}
 	
-	handleAddQuiz =(quizName) =>{
+	handleAddQuiz = (quizName) =>{
 	  	
 	  	// will contain the prop for navigating to each quiz
 		console.log('PRESSED', quizName);
@@ -33,7 +33,7 @@ export default class QuizForm extends Component {
 				<Title text={'Create a Quiz'} addStyles={styles.addHeight}/>
 				<Input 
 	                input={quizName} 
-	                placeholder={'Give your quiz a name!'}
+	                placeholder={'Give your quiz a name'}
 	                onChangeText={this.handleTextChange} />
 	            <Button text={'Add Quiz'} handler={this.handleAddQuiz} addStyles={styles.addMargin}/>
 			</Container>
