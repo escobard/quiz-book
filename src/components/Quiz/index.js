@@ -8,11 +8,15 @@ export default class Quiz extends Component {
 
 	render(){
 		let { quiz } = this.props
-		let {title, questions} = quiz
+		let { title, questions } = quiz
+		let { answer, question} = questions[0]
 
 		return(
 			<Container>
-				<Title text={title}/>
+				<Title text={answer}/>
+				<Title text={question}/>
+				<Button text={'Correct'}/>
+				<Button text={'Incorrect'}/>
 			</Container>
 		)
 	}

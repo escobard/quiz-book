@@ -6,8 +6,14 @@ import Quiz from '../components/Quiz'
 
 class QuizView extends Component {
 
-	render(){
+	static navigationOptions = () => {
 
+		return {
+			title: 'Back to quiz'
+		}
+	}
+	render(){
+		console.log('PROPS', this.props)
 		let selectedQuiz = this.props.navigation.state.params
 
 		return (
