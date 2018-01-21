@@ -8,12 +8,10 @@ class QuizView extends Component {
 
 	render(){
 
-		let quiz = this.props.navigation.state.params
- 		console.log(quiz)
+		let selectedQuiz = this.props.navigation.state.params
+
 		return (
-			<View>
-				<Text> CARD VIEW</Text>
-			</View>
+			<Quiz quiz={selectedQuiz} />
 		)
 	}
 }
@@ -24,4 +22,4 @@ function mapStateToProps(state){
 	return {state}
 }
 
-export default connect(mapStateToProps)(QuizView')
+export default connect(mapStateToProps)(QuizView)

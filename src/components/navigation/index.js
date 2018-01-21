@@ -68,8 +68,8 @@ export const MainNavigator = StackNavigator({
 			}
 		}
 	},
-	Quiz: {
-		screen: Quiz,
+	QuizView: {
+		screen: QuizView,
 		navigationOptions: {
 			headerTintColor: white,
 			headerStyle: {

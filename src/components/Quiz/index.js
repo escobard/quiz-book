@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import { styles } from './styles'
-import { checkNumber } from './utils'
 
 import { Title, Container, Button } from '../Common'
 
@@ -12,7 +11,7 @@ export default class Quiz extends Component {
 		let {title, questions} = quiz
 
 		return(
-			<Container addStyles={styles.centered}>
+			<Container>
 				<Title text={title}/>
 			</Container>
 		)

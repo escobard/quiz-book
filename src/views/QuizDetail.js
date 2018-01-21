@@ -22,9 +22,11 @@ class QuizDetail extends Component {
 	addCard(nav, quiz){
 		nav.navigate('AddCard', quiz)
 	}
+	
 	startQuiz(nav, quiz){
-		nav.navigate('Quiz', quiz)
+		nav.navigate('QuizView', quiz)
 	}
+
 	render(){
 		// this should be refactored into a reducer later
 		let { navigation } = this.props		
