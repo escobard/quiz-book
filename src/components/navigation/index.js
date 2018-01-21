@@ -8,7 +8,7 @@ import AddQuiz from '../../views/AddQuiz'
 import AddCard from '../../views/AddCard'
 import QuizDetail from '../../views/QuizDetail'
 import QuizList from '../../views/QuizList'
-import Quiz from '../../views/Quiz'
+import QuizView from '../../views/QuizView'
 
 export const Tabs = TabNavigator({
 	QuizList: {

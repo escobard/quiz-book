@@ -2,10 +2,14 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
 
-// import Card from '../components/Quiz'
+import Quiz from '../components/Quiz'
 
-class Quiz extends Component {
+class QuizView extends Component {
+
 	render(){
+
+		let quiz = this.props.navigation.state.params
+ 		console.log(quiz)
 		return (
 			<View>
 				<Text> CARD VIEW</Text>
@@ -20,4 +24,4 @@ function mapStateToProps(state){
 	return {state}
 }
 
-export default connect(mapStateToProps)(Quiz)
+export default connect(mapStateToProps)(QuizView')
