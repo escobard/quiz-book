@@ -29,6 +29,7 @@ export const space ={
 	xxlrg: 75
 }
 
+// this should be exported to common/styles.js eventually
 export const common ={
 	container: {
 	    flex: 1,
@@ -52,9 +53,18 @@ export const common ={
 		borderRadius: 0,
 	},
 	correctBtn: {
+		borderColor: colors.green,
 		backgroundColor: colors.green,
 	},
+	correctActive: {
+		borderColor: colors.blue
+	},
+	incorrectActive: {
+		borderColor: colors.blue
+	},
+
 	incorrectBtn: {
+		borderColor: colors.red,
 		backgroundColor: colors.red,
 	},
 	title: {
@@ -75,6 +85,8 @@ export const common ={
 	    alignItems: 'center',
 	    borderRadius: space.xxsmall,
 	    marginTop: space.med,
+	    borderWidth: space.xxsmall,
+	    borderColor: colors.purple
 	},
 	btnText: {
 	    color: colors.white,

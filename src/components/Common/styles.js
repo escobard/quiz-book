@@ -13,5 +13,6 @@ export const styles = StyleSheet.create({
   toggle: common.toggle,
   toggleBtn: common.toggleBtn,
   correctBtn: common.correctBtn,
+  correctActive: common.correctActive,
   incorrectBtn: common.incorrectBtn,
 });

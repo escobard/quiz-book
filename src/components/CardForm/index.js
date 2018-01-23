@@ -8,7 +8,9 @@ export default class QuizForm extends Component {
 	
 	state={
 		cardName: '',
-		cardAnswer: ''
+		cardAnswer: '',
+		correctActive: false,
+		incorrectActive: false
 	}
 
 	cardInput = (cardName) => {
@@ -16,6 +18,22 @@ export default class QuizForm extends Component {
 	    this.setState({
 	      cardName 
 	    })
+	}
+
+	correctPress(){
+		console.log('PRESSEDDD')
+		this.setState({
+			correctActive: true,
+			incorrectActive: false
+		})
+	}
+
+	incorrectPress(){
+		this.setState({
+			correctActive: false,
+			incorrectActive: true
+		})
+
 	}
 
 	answerInput = (cardAnswer) => {
@@ -27,8 +45,9 @@ export default class QuizForm extends Component {
 
 	render(){
 
-		let { cardName, cardAnswer } = this.state
+		let { cardName, cardAnswer, correctActive, incorrectActive } = this.state
 		let { goBack, addCard} = this.props
+		console.log('this state', this.state)
 
 		return(
 			<Container formContainer={true}>
@@ -46,7 +65,14 @@ export default class QuizForm extends Component {
 	                onChangeText={this.answerInput}
 	                addStyles={styles.addMargin} 
 	            />
-	            <Toggle text1={'Incorrect'} text2={'Correct'}/>
+	            <Toggle
+	             text1={'Incorrect'} 
+	             text2={'Correct'} 
+	             handler1={() => this.incorrectPress()}
+	             handler2={() => this.correctPress()}
+	             isCorrect={correctActive} 
+	             isIncorrect={incorrectActive}
+	            />
 	            <Button text={'Add Card'} handler={addCard}/>
 	           	<Button text={'Cancel'} handler={goBack}/>
 			</Container>
