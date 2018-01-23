@@ -16,22 +16,33 @@ export default class Quiz extends Component {
 		}
 
 		this.handleAnswer = this.handleAnswer.bind(this);
-		this.renderCard = this.renderCard.bind(this);
+		this.renderCards = this.renderCards.bind(this);
+		this.nextCard = this.nextCard.bind(this);
 	}
 
-	renderCard(questions, content, cardNumber, currentCard){
+	componentDidMount(){
+		this.setState({
+			cardNumber: this.props.quiz.questions.length
+		})
+	}
+
+	renderCards(questions, showAnswer, cardNumber, currentCard){
 
 		return questions.map((item, key) => {
 			// checks current card number vs key
+			// need to add the score screen text here
 			if (currentCard != key) { return }
 			
 			/*
 			console.log('item', item)	
 			console.log('key', key)
 			console.log('content', content)
-			let {question, answer } = item
 			*/
-			
+
+			let { answer, question } = item
+
+			let content =  showAnswer ? answer : question
+
 			return (
 
 				<Container key={key}>
@@ -40,6 +51,39 @@ export default class Quiz extends Component {
 
 			)
 
+		})
+	}
+
+	renderButtons(btnContent, showAnswer, currentCard){
+		// need to add a handler for when the 
+		return (
+			<Container>
+				<Button
+				 text={btnContent} 
+				 handler={() => this.handleAnswer(showAnswer)}
+				/>
+
+				<Button
+				 text={'Correct'}
+				 handler={() => this.nextCard(currentCard)}
+				/>
+
+				<Button
+				 text={'Incorrect'}
+				 handler={() => this.nextCard(currentCard)}
+				/>
+			</Container>
+
+		)
+	}
+
+	nextCard(card){
+
+		let next = card + 1
+		
+		this.setState({
+			currentCard: next,
+			showAnswer: false
 		})
 	}
 
@@ -55,22 +99,13 @@ export default class Quiz extends Component {
 		let { quiz } = this.props
 		let { showAnswer, cardNumber, currentCard } = this.state
 		let { title, questions } = quiz
-		let { answer, question } = questions[0]
-
-		let content =  showAnswer ? answer : question 
+		 
 		let btnContent = showAnswer ? 'Show Question' : 'Show Answer'
 
 		return(
 			<Container addStyles={styles.container}>
-				{this.renderCard(questions, content, cardNumber, currentCard)}
-				
-				<Button
-				 text={btnContent} 
-				 handler={() => this.handleAnswer(showAnswer)}
-				/>
-
-				<Button text={'Correct'}/>
-				<Button text={'Incorrect'}/>
+				{this.renderCards(questions, showAnswer, cardNumber, currentCard)}
+				{this.renderButtons(btnContent, showAnswer, currentCard)}
 			</Container>
 		)
 	}
