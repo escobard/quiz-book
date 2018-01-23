@@ -9,6 +9,7 @@ export const colors = {
 	blue : '#4e4cb8',
 	lightPurp : '#7c53c3',
 	pink : '#b93fb3',
+	green: '#00e500',
 
 }
 
@@ -32,8 +33,8 @@ export const common ={
 	container: {
 	    flex: 1,
 	    backgroundColor: colors.white,
-	    paddingLeft: space.small,
-	    paddingRight: space.small,
+	    paddingLeft: space.lrg,
+	    paddingRight: space.lrg,
 	    alignItems: 'stretch',
 	    justifyContent: 'center',
 	},
@@ -42,6 +43,19 @@ export const common ={
 		alignItems: 'center',
 		flexDirection: 'column',
 		justifyContent: 'center',
+	},
+	toggle: {
+		flexDirection: 'row',
+	},
+	toggleBtn: {
+		flex: 1,
+		borderRadius: 0,
+	},
+	correctBtn: {
+		backgroundColor: colors.green,
+	},
+	incorrectBtn: {
+		backgroundColor: colors.red,
 	},
 	title: {
 	    height: space.xlrg,
@@ -72,6 +86,7 @@ export const common ={
 	    borderWidth: space.xxxsmall,
 	    borderColor: colors.darkGray,
 	    alignItems: 'stretch',
-	}
+	},
+
 }
 

@@ -4,7 +4,6 @@ import { checkNumber } from './utils'
 
 import { Title, Container, Button } from '../Common'
 
-
 export default class Quiz extends Component {
 
 	render(){

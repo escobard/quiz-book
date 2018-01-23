@@ -71,3 +71,13 @@ export const Title = ({text, isSubtitle, addStyles}) => {
 
 }
 
+export const Toggle = ( {text1, text2, handler1, handler2, addStyles} ) =>{
+	return (
+
+		<View style={[styles.toggle, addStyles]}>
+			<Button text={text1} onPress={handler1} addStyles={[styles.correctBtn, styles.toggleBtn]}/>
+			<Button text={text2} onPress={handler2} addStyles={[styles.incorrectBtn, styles.toggleBtn]}/>
+		</View>
+
+	)
+}

@@ -1,7 +1,7 @@
 
 import { StyleSheet } from 'react-native'
 
-import { common } from '../../styles'
+import { common, colors } from '../../styles'
 
 export const styles = StyleSheet.create({
   container: common.container,
@@ -9,5 +9,9 @@ export const styles = StyleSheet.create({
   subtitle: common.subtitle,
   btn: common.btn,
   btnText: common.btnText,
-  input: common.input
+  input: common.input,
+  toggle: common.toggle,
+  toggleBtn: common.toggleBtn,
+  correctBtn: common.correctBtn,
+  incorrectBtn: common.incorrectBtn,
 });

@@ -13,7 +13,7 @@ class QuizView extends Component {
 		}
 	}
 	render(){
-		console.log('PROPS', this.props)
+
 		let selectedQuiz = this.props.navigation.state.params
 
 		return (

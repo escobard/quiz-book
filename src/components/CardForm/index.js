@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView} from 'react-native'
 
 import {styles} from './styles'
 
-import { Container, Title, Button, Input } from '../Common'
+import { Container, Title, Button, Input, Toggle } from '../Common'
 
 export default class QuizForm extends Component {
 	
@@ -33,15 +32,21 @@ export default class QuizForm extends Component {
 
 		return(
 			<Container formContainer={true}>
+				<Title text={'Create a card'} />
+				<Title isSubtitle={true} text={'Each card must contain an answer and a question'}/>
 				<Input 
 	                input={cardName} 
-	                placeholder={"Enter the name of your card"}
-	                onChangeText={this.cardInput} />
+	                placeholder={"Enter a question"}
+	                onChangeText={this.cardInput}
+	                addStyles={styles.addMargin}
+	            />
 	            <Input 
 	                input={cardAnswer} 
-	                placeholder={"What's the answer to the card's question?"}
+	                placeholder={"Enter the answer to the question"}
 	                onChangeText={this.answerInput}
-	                addStyles={styles.addMargin} />
+	                addStyles={styles.addMargin} 
+	            />
+	            <Toggle text1={'Incorrect'} text2={'Correct'}/>
 	            <Button text={'Add Card'} handler={addCard}/>
 	           	<Button text={'Cancel'} handler={goBack}/>
 			</Container>
