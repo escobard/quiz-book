@@ -62,7 +62,6 @@ export const common ={
 	incorrectActive: {
 		borderColor: colors.blue
 	},
-
 	incorrectBtn: {
 		borderColor: colors.red,
 		backgroundColor: colors.red,

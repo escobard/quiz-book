@@ -21,7 +21,6 @@ export default class QuizForm extends Component {
 	}
 
 	correctPress(){
-		console.log('PRESSEDDD')
 		this.setState({
 			correctActive: true,
 			incorrectActive: false
@@ -33,7 +32,6 @@ export default class QuizForm extends Component {
 			correctActive: false,
 			incorrectActive: true
 		})
-
 	}
 
 	answerInput = (cardAnswer) => {
