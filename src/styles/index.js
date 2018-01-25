@@ -26,10 +26,11 @@ export const space ={
 	med : 20,
 	lrg : 30,
 	xlrg : 50,
-	xxlrg: 75
+	xxlrg: 75,
+	xxxlrg: 100
 }
 
-// this should be exported to common/styles.js eventually
+
 export const common ={
 	container: {
 	    flex: 1,

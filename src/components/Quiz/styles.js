@@ -1,7 +1,7 @@
 
 import { StyleSheet } from 'react-native'
 
-import { common, space, colors } from '../../styles'
+import { space, colors } from '../../styles'
 
 export const styles = StyleSheet.create({
   title:{ 
