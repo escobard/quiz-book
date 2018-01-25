@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
-
 import { styles } from './styles'
 import { checkNumber } from './utils'
 
 import { Title, Container, Button } from '../Common'
 
-
 export default class Quiz extends Component {
 
 	render(){
-
-		let {title, questions} = this.props.quiz
+		let {quiz, addCard, goBack} = this.props
+		let {title, questions} = quiz
 		let cardNumber = checkNumber(questions.length)
 		let numberText = checkNumber(questions.length, true)
 
@@ -19,8 +16,8 @@ export default class Quiz extends Component {
 			<Container addStyles={styles.centered}>
 				<Title text={title}/>
 				<Title isSubtitle={true} text={`${cardNumber} ${numberText}`}/>
-				<Button text={'Add Card'}/>
-				<Button text={'Start Quiz'}/>
+				<Button text={'Add Card'} handler={addCard}/>
+				<Button text={'Start Quiz'} handler={goBack}/>
 			</Container>
 		)
 	}

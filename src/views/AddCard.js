@@ -2,46 +2,41 @@ import React, { Component } from 'react'
 import { FlatList } from 'react-native'
 import { connect } from 'react-redux'
 
-// import Quiz from '../components/Quiz'
+import CardForm from '../components/CardForm'
 
 class AddCard extends Component {
-	
-	static navigationOptions = () => {
+	constructor(props) {
+		super(props)
+		this.state={
+			test:''
+		}
+	}
+
+	static navigationOptions(){
+
 		return {
 			title: 'Add a card'
 		}
 	}
 
-	constructor(props) {
-		super(props)
-		this.renderQuiz = this.renderQuiz.bind(this);
-
+	goBack(nav){
+		nav.goBack();
 	}
 
-	goToDeck(nav, quiz){
-		nav.navigate('QuizDetail',{quiz})
-	}
+	addCard(nav, quiz){
 
-	renderCard({item, key}){
-		// console.log('QUIZ WITHIN LOOP', item.title)
-		/*
-		return (
-			<Quiz id={key} quiz={item} nav={() => this.goToDeck(this.props.navigation, item)}/>
-
-		) */
+		// this will also need to handle the add to deck action
+		nav.goBack();
 	}
 
 	render(){
-		let { quizList } = this.props
+
+		let { navigation } = this.props
+		console.log('PROPS', this.props)
 
 		return (
 			
-			<FlatList 
-				data={quizList}
-				keyExtractor={quiz => quiz.title}
-				renderItem={this.renderQuiz}
-				style={{backgroundColor: 'white'}}
-			/>
+			<CardForm goBack={() => this.goBack(navigation)} addCard={() => this.addCard(navigation)}/>
 
 		)
 	}
@@ -50,4 +45,5 @@ class AddCard extends Component {
 function mapStateToProps({quizList}){
 	return {quizList}
 }
+
 export default connect(mapStateToProps)(AddCard);

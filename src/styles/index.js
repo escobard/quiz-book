@@ -9,6 +9,7 @@ export const colors = {
 	blue : '#4e4cb8',
 	lightPurp : '#7c53c3',
 	pink : '#b93fb3',
+	green: '#00e500',
 
 }
 
@@ -25,15 +26,17 @@ export const space ={
 	med : 20,
 	lrg : 30,
 	xlrg : 50,
-	xxlrg: 75
+	xxlrg: 75,
+	xxxlrg: 100
 }
+
 
 export const common ={
 	container: {
 	    flex: 1,
 	    backgroundColor: colors.white,
-	    paddingLeft: space.small,
-	    paddingRight: space.small,
+	    paddingLeft: space.lrg,
+	    paddingRight: space.lrg,
 	    alignItems: 'stretch',
 	    justifyContent: 'center',
 	},
@@ -42,6 +45,27 @@ export const common ={
 		alignItems: 'center',
 		flexDirection: 'column',
 		justifyContent: 'center',
+	},
+	toggle: {
+		flexDirection: 'row',
+	},
+	toggleBtn: {
+		flex: 1,
+		borderRadius: 0,
+	},
+	correctBtn: {
+		borderColor: colors.green,
+		backgroundColor: colors.green,
+	},
+	correctActive: {
+		borderColor: colors.blue
+	},
+	incorrectActive: {
+		borderColor: colors.blue
+	},
+	incorrectBtn: {
+		borderColor: colors.red,
+		backgroundColor: colors.red,
 	},
 	title: {
 	    height: space.xlrg,
@@ -61,6 +85,8 @@ export const common ={
 	    alignItems: 'center',
 	    borderRadius: space.xxsmall,
 	    marginTop: space.med,
+	    borderWidth: space.xxsmall,
+	    borderColor: colors.purple
 	},
 	btnText: {
 	    color: colors.white,
@@ -72,6 +98,7 @@ export const common ={
 	    borderWidth: space.xxxsmall,
 	    borderColor: colors.darkGray,
 	    alignItems: 'stretch',
-	}
+	},
+
 }
 

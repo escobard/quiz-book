@@ -42,13 +42,23 @@ $ npm start (or yarn start)
 ```
 
 
-## Most Recent Update - v0.4
+## Most Recent Update - v0.5
 
+##v0.5
+	- COMPLETED:
+		+ refactor component elements for better syntax structure
+		+ style & create navigation for:
+			- QuizDetail view
+			- AddQuiz view
+		
+
+## v0.4
 	- COMPLETED:
 		+ create base navigation for quiz list and quiz components
 		+ style base components 
 
 ## v0.3
+
 	
 	- COMPLETED:
 		+ connect redux
@@ -58,25 +68,14 @@ $ npm start (or yarn start)
 			- AddQuiz
 			- Quiz
 
-## v0.2
-	- COMPLETED:
-		+ create base components including:
-			- navigation
-			- base views
-		+ create static data
 
-## v0.1 
-	COMPLETED:
-		- installed boilerplate
-		- create base react-redux / ublitz file structure
-
-## To Do's - v0.5
+## To Do's - v0.6
 	- TODO:
 		+ style & create navigation for:
-			- QuizDetail
-			- AddCard
-			- CardView
-			- ScoreView
+			- Card
+			- Score
+			- AddCard view
+			- Quiz view 
 
 ## Known Bugs
 - Application live version showing an error due to bundle.js compression.

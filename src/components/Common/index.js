@@ -51,8 +51,7 @@ export const Button = ({text, btnText, handler, addStyles, isQuizItem}) => {
 
 	return (
 
-
-		<TouchableOpacity style={[styles.btn, addStyles]} onPress={()=> onTouch}>
+		<TouchableOpacity style={[styles.btn, addStyles]} onPress={handler}>
 			<Text style={styles.btnText}>
 				{text}
 			</Text>
@@ -71,3 +70,15 @@ export const Title = ({text, isSubtitle, addStyles}) => {
 
 }
 
+export const Toggle = ( { text1, text2, handler1, handler2, addStyles, isCorrect, isIncorrect } ) =>{
+	let correctStyle = isCorrect ? styles.correctActive : {}
+	let incorrectStyle = isIncorrect ? styles.incorrectActive : {}
+	return (
+
+		<View style={[styles.toggle, addStyles]}>
+			<Button text={text1} handler={handler1} addStyles={[styles.incorrectBtn, styles.toggleBtn, incorrectStyle]}/>
+			<Button text={text2} handler={handler2} addStyles={[styles.correctBtn, styles.toggleBtn, correctStyle]}/>
+		</View>
+
+	)
+}
