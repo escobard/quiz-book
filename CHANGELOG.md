@@ -1,11 +1,19 @@
 # CHANGELOG - Mobile Flashcards - react-native && react-redux  
 
+##v0.7
+	- TODO:
+		+ configure data flow including:
+			- new deck addition
+			- new card addition
+			- storage / fetching from AsyncStorage
+		+ tune some functionality:
+			- Add score functionality / render methods
+			- Optionally add card deletion / deck deletion mechanisms.
+
 ##v0.6
 	- COMPLETED:
 		+ style & create navigation for:
 			- AddCard view
-	- TODO:
-		+ style & create navigation for:
 			- Card
 			- Score
 			- Quiz view 

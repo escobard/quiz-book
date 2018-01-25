@@ -42,7 +42,15 @@ $ npm start (or yarn start)
 ```
 
 
-## Most Recent Update - v0.5
+## Most Recent Update - v0.6
+
+##v0.6
+	- COMPLETED:
+		+ style & create navigation for:
+			- AddCard view
+			- Card
+			- Score
+			- Quiz view 
 
 ##v0.5
 	- COMPLETED:
@@ -57,25 +65,16 @@ $ npm start (or yarn start)
 		+ create base navigation for quiz list and quiz components
 		+ style base components 
 
-## v0.3
 
-	
-	- COMPLETED:
-		+ connect redux
-		+ create base components including:
-			- QuizList
-			- QuizItem
-			- AddQuiz
-			- Quiz
-
-
-## To Do's - v0.6
+## To Do's - v0.7
 	- TODO:
-		+ style & create navigation for:
-			- Card
-			- Score
-			- AddCard view
-			- Quiz view 
+		+ configure data flow including:
+			- new deck addition
+			- new card addition
+			- storage / fetching from AsyncStorage
+		+ tune some functionality:
+			- Add score functionality / render methods
+			- Optionally add card deletion / deck deletion mechanisms.
 
 ## Known Bugs
 - Application live version showing an error due to bundle.js compression.
