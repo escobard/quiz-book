@@ -2,7 +2,6 @@ import { combineReducers } from 'redux';
 
 import { quizData, newTest } from '../constants';
 
-
 function quizList(state=quizData, action) {
 	// console.log('REDUCER STATE', state)
 	let obj = {...state, ...newTest}

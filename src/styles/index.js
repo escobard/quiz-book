@@ -79,8 +79,6 @@ export const common ={
 	btn: {
 	    backgroundColor: colors.purple,
 	    padding: space.small,
-	    paddingLeft: space.xlrg,
-	    paddingRight: space.xlrg,
 	    justifyContent : 'center',
 	    alignItems: 'center',
 	    borderRadius: space.xxsmall,

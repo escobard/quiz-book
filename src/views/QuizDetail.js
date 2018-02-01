@@ -11,32 +11,24 @@ class QuizDetail extends Component {
 
 	}
 
-	static navigationOptions = ({ navigation }) => {
-		const quizTitle = navigation.state.params.quiz.title
+	static navigationOptions = ({ navigation}) => {
+		const quizTitle = navigation ? navigation.state.params.quiz.title : ''
 
 		return {
 			title: quizTitle
 		}
 	}
 
-	addCard(nav, quiz){
-		nav.navigate('AddCard', quiz)
-	}
-	
-	startQuiz(nav, quiz){
-		nav.navigate('QuizView', quiz)
-	}
-
 	render(){
 		// this should be refactored into a reducer later
 		let { navigation } = this.props		
-		let passedQuiz = navigation.state.params.quiz
+		let { navigate, state: { params:{ quiz } } } = navigation
 
 		return(
 				<QuizOverview
-					addCard={() => this.addCard(navigation, passedQuiz)} 
-				 	goBack={() => this.startQuiz(navigation, passedQuiz)} 
-				 	quiz={passedQuiz} 
+					addCard={() => navigate('AddCard', quiz)} 
+				 	startQuiz={() => navigate('QuizView', quiz)} 
+				 	quiz={quiz} 
 				/>
 		)
 	}

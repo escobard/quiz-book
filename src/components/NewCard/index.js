@@ -4,7 +4,7 @@ import { styles } from "./styles"
 
 import { Container, Title, Button, Input, Toggle } from "../Common"
 
-export default class QuizForm extends Component {
+export default class NewCard extends Component {
 	state = {
 		cardName: "",
 		cardAnswer: "",
@@ -41,13 +41,13 @@ export default class QuizForm extends Component {
 	}
 
 	render() {
-		let {
+		let {state: {
 			cardName,
 			cardAnswer,
 			correctActive,
 			incorrectActive
-		} = this.state
-		let { goBack, addCard } = this.props
+		},props: { goBack, addCard }} = this
+		
 		console.log("this state", this.state)
 
 		return (

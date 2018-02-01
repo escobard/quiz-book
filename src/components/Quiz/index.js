@@ -58,13 +58,14 @@ export default class Quiz extends Component {
 	}
 
 	renderButtons(
-		btnContent,
 		showAnswer,
 		cardNumber,
 		currentCard,
 		showScore,
 		goBack
-	) {
+	) {	
+		let btnContent = showAnswer ? "Show Question" : "Show Answer"
+
 		return (
 			<Container>
 				<Button
@@ -116,13 +117,13 @@ export default class Quiz extends Component {
 		let { quiz, goBack, restartQuiz } = this.props
 		let { showAnswer, cardNumber, currentCard } = this.state
 		let { title, questions } = quiz
-		let btnContent = showAnswer ? "Show Question" : "Show Answer"
+		
 
 		if (showScore) {
 			return <Score results={quiz} restartQuiz={restartQuiz} goBack={goBack} />
 		}
 		return (
-			<Container addStyles={styles.container}>
+			<Container>
 				{this.renderCards(
 					questions,
 					showAnswer,
@@ -131,7 +132,6 @@ export default class Quiz extends Component {
 					showScore
 				)}
 				{this.renderButtons(
-					btnContent,
 					showAnswer,
 					cardNumber,
 					currentCard,

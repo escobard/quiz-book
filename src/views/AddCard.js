@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FlatList } from 'react-native'
 import { connect } from 'react-redux'
 
-import CardForm from '../components/CardForm'
+import NewCard from '../components/NewCard'
 
 class AddCard extends Component {
 	constructor(props) {
@@ -36,7 +36,7 @@ class AddCard extends Component {
 
 		return (
 			
-			<CardForm goBack={() => this.goBack(navigation)} addCard={() => this.addCard(navigation)}/>
+			<NewCard goBack={() => this.goBack(navigation)} addCard={() => this.addCard(navigation)}/>
 
 		)
 	}

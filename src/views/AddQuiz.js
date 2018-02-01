@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
 
-import QuizForm from '../components/QuizForm'
+import NewQuiz from '../components/NewQuiz'
 
 class AddQuiz extends Component {
 	render(){
 		return (
-			<QuizForm />
+			<NewQuiz />
 		)
 	}
 }
