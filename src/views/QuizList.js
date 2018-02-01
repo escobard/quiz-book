@@ -26,11 +26,11 @@ class QuizList extends Component {
 	}
 
 	render() {
-		let { quizList } = this.props
+		let { quizzes } = this.props
 
 		return (
 			<FlatList
-				data={quizList}
+				data={quizzes}
 				keyExtractor={quiz => quiz.title}
 				renderItem={this.renderQuiz}
 				style={{ backgroundColor: "white" }}
@@ -39,7 +39,7 @@ class QuizList extends Component {
 	}
 }
 
-function mapStateToProps({ quizList }) {
-	return { quizList }
+function mapStateToProps({ quizzes }) {
+	return { quizzes }
 }
 export default connect(mapStateToProps)(QuizList)

@@ -40,8 +40,8 @@ class AddCard extends Component {
 	}
 }
 
-function mapStateToProps({ quizList }) {
-	return { quizList }
+function mapStateToProps({ quizzes }) {
+	return { quizzes }
 }
 
 export default connect(mapStateToProps)(AddCard)

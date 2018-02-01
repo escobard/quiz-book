@@ -1,10 +1,36 @@
-# README - Mobile Flashcards - react-native && react-redux  
+# README - Quiz Book - react-native && react-redux  
 
-This repository contains all the files for the final project of the [React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019) with [Udacity](https://www.udacity.com/). 
+The client side of this project was built around the criteria of the final project of the [React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019) with [Udacity](https://www.udacity.com/).
+
+The server and data side of this project will be built from the material learned from:
+- [The Complete Developers Guide to MongoDB] (https://www.udemy.com/the-complete-developers-guide-to-mongodb)
+- [Server Side Rendering with React and Redux] (https://www.udemy.com/server-side-rendering-with-react-and-redux) 
 
 ## Project Criteria
 
-This application is a quiz application that must meet the following criteria:
+The main purpose of this application is to provide the following features:
+	
+	- A quiz game, with public scoreboards including:
+		+ Basic user profiles.
+		+ User dashboard, with metrics.
+			* Showing quizzes, (option to display public or not)
+			* Show scores (always public, with quiz names only displayed)
+		+ Scoreboard
+
+This application will be built to showcase the following technologies and practices:
+	
+	- Consistent data retention with MongoDB / Mongoose
+	- REST API to manage HTTP requests with Express / Node
+	- Render the client interface with React Native / Redux
+	- Testing of server, data, and client applications with Mocha / Enzyme / Jest
+	- Manage user Authentication with oAuth / Passport 
+	- Offline caching with AsyncStorage
+
+Possible future technologies include:
+
+	- GraphQL / Apollo for better offline - first utilization
+	- Server Side Rendering for optimized performance
+	- React application for web devices
 
 (Expand upon criteria in a later version)
 

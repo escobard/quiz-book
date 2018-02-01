@@ -1,4 +1,4 @@
-# CHANGELOG - Mobile Flashcards - react-native && react-redux  
+# CHANGELOG - Quiz Book - react-native && react-redux  
 
 ##v0.7
 	- COMPLETED:
@@ -7,9 +7,9 @@
 		- Ready for action / reducer / asyncStorage
 	- TODO:
 		+ configure data flow including:
-			- new deck addition
-			- new card addition
-			- storage / fetching from AsyncStorage
+			- action for new deck addition
+			- action for new card addition
+			- action for storage / fetching from AsyncStorage
 		+ tune some functionality:
 			- Add score functionality / render methods
 			- Optionally add card deletion / deck deletion mechanisms.
