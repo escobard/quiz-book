@@ -6,7 +6,7 @@ import { purple, white } from '../../utils/colors'
 
 import AddQuiz from '../../views/AddQuiz'
 import AddCard from '../../views/AddCard'
-import QuizDetail from '../../views/QuizDetail'
+import QuizBreakdown from '../../views/QuizBreakdown'
 import QuizList from '../../views/QuizList'
 import QuizView from '../../views/QuizView'
 
@@ -50,8 +50,8 @@ export const MainNavigator = StackNavigator({
 	Home: {
 		screen: Tabs,
 	},
-	QuizDetail: {
-		screen: QuizDetail,
+	QuizBreakdown: {
+		screen: QuizBreakdown,
 		navigationOptions: {
 			headerTintColor: white,
 			headerStyle: {

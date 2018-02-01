@@ -1,24 +1,22 @@
-import React, { Component } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import React, { Component } from "react"
+import { View, Text, TouchableOpacity } from "react-native"
 
-import { styles } from './styles'
+import { styles } from "./styles"
 
-import {Button} from '../Common'
+import { Button } from "../Common"
 
 export default class QuizItem extends Component {
-	
-	render(){
-		let {nav, quiz} = this.props
-		let {title, questions} = quiz
+	render() {
+		let { nav, quiz: { title, questions } } = this.props
 
-		return(
+		return (
 			<Button
-			 text={title} 
-			 btnText={`Cards: ${questions.length}`} 
-			 handler={nav} 
-			 isQuizItem={true} 
-			 addStyles={styles.subtitle}
-			 />
+				text={title}
+				btnText={`Cards: ${questions.length}`}
+				handler={nav}
+				isQuizItem={true}
+				addStyles={styles.subtitle}
+			/>
 		)
 	}
 }

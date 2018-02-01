@@ -1,21 +1,18 @@
-import React, { Component } from 'react'
-import { View, Text } from 'react-native'
-import { connect } from 'react-redux'
+import React, { Component } from "react"
+import { View, Text } from "react-native"
+import { connect } from "react-redux"
 
-import QuizForm from '../components/QuizForm'
+import AddQuizForm from "../components/AddQuizForm"
 
 class AddQuiz extends Component {
-	render(){
-		return (
-			<QuizForm />
-		)
+	render() {
+		return <AddQuizForm />
 	}
 }
 
-function mapStateToProps(state){
-
+function mapStateToProps(state) {
 	// no state to pass yet, but will pass all for now to complete redux connection
-	return {state}
+	return { state }
 }
 
 export default connect(mapStateToProps)(AddQuiz)
