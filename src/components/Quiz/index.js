@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
 import { styles } from "./styles"
+import { cardCount } from "./utils"
 
 import { Title, Container, Button } from "../Common"
 
@@ -20,7 +21,6 @@ export default class Quiz extends Component {
 		this.handleAnswer = this.handleAnswer.bind(this)
 		this.renderCards = this.renderCards.bind(this)
 		this.nextCard = this.nextCard.bind(this)
-		this.renderContent = this.renderContent.bind(this)
 	}
 
 	componentDidMount() {
@@ -30,7 +30,6 @@ export default class Quiz extends Component {
 	}
 
 	renderCards(questions, showAnswer, cardNumber, currentCard, showScore) {
-
 		// this should be refactored into a separate component in the future
 		return questions.map((item, key) => {
 			// checks current card number vs key
@@ -57,13 +56,7 @@ export default class Quiz extends Component {
 		})
 	}
 
-	renderButtons(
-		showAnswer,
-		cardNumber,
-		currentCard,
-		showScore,
-		goBack
-	) {	
+	renderButtons(showAnswer, cardNumber, currentCard, goBack) {
 		let btnContent = showAnswer ? "Show Question" : "Show Answer"
 
 		return (
@@ -91,19 +84,15 @@ export default class Quiz extends Component {
 	}
 
 	nextCard(showAnswer, cardNumber, currentCard) {
-		// refactor this into a helper file after, in v0.7 during v0.6 cleanup
-		let showScore = (cardNumber, currentCard) => {
-			if (currentCard == cardNumber - 1) {
-				return true
-			}
-		}
 
 		let next = currentCard + 1
+
+		let showScore = cardCount(cardNumber, currentCard);
 
 		this.setState({
 			currentCard: next,
 			showAnswer: false,
-			showScore: showScore(cardNumber, currentCard)
+			showScore
 		})
 	}
 
@@ -113,14 +102,19 @@ export default class Quiz extends Component {
 		})
 	}
 
-	renderContent(showScore) {
+	renderCard() {
 		let { quiz, goBack, restartQuiz } = this.props
-		let { showAnswer, cardNumber, currentCard } = this.state
+		let { showAnswer, cardNumber, currentCard, showScore } = this.state
 		let { title, questions } = quiz
-		
 
 		if (showScore) {
-			return <Score results={quiz} restartQuiz={restartQuiz} goBack={goBack} />
+			return (
+				<Score
+					results={quiz}
+					restartQuiz={restartQuiz}
+					goBack={goBack}
+				/>
+			)
 		}
 		return (
 			<Container>
@@ -128,14 +122,12 @@ export default class Quiz extends Component {
 					questions,
 					showAnswer,
 					cardNumber,
-					currentCard,
-					showScore
+					currentCard
 				)}
 				{this.renderButtons(
 					showAnswer,
 					cardNumber,
 					currentCard,
-					showScore,
 					goBack,
 					restartQuiz
 				)}
@@ -144,11 +136,9 @@ export default class Quiz extends Component {
 	}
 
 	render() {
-		let { showScore } = this.state
-
 		return (
 			<Container addStyles={styles.container}>
-				{this.renderContent(showScore)}
+				{this.renderCard()}
 			</Container>
 		)
 	}

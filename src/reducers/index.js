@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux"
 
-import { quizData, newTest } from '../constants';
+import { quizData, newTest } from "../constants"
 
-function quizList(state=quizData, action) {
+function quizList(state = quizData, action) {
 	// console.log('REDUCER STATE', state)
-	let obj = {...state, ...newTest}
+	let obj = { ...state, ...newTest }
 
 	// returns a sorted array with ES6
 	// return Object.keys(obj).map(key => obj[key]);
@@ -14,7 +14,7 @@ function quizList(state=quizData, action) {
 }
 
 const rootReducer = combineReducers({
-  quizList
-});
+	quizList
+})
 
-export default rootReducer;
+export default rootReducer

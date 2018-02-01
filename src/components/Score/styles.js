@@ -1,10 +1,9 @@
+import { StyleSheet } from "react-native"
 
-import { StyleSheet } from 'react-native'
-
-import { space, colors } from '../../styles'
+import { space, colors } from "../../styles"
 
 export const styles = StyleSheet.create({
-  title:{ 
-      height: space.xxxlrg + space.xxxlrg
-  }
-});
+	title: {
+		height: space.xxxlrg + space.xxxlrg
+	}
+})

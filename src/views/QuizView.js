@@ -22,7 +22,7 @@ class QuizView extends Component {
 	render() {
 		let { navigation } = this.props
 		let selectedQuiz = navigation.state.params
-		
+
 		return (
 			<Quiz
 				quiz={selectedQuiz}

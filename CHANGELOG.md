@@ -1,6 +1,10 @@
 # CHANGELOG - Mobile Flashcards - react-native && react-redux  
 
 ##v0.7
+	- COMPLETED:
+		- Refactor of most application code.
+		- Child component inherited data cleanup
+		- Ready for action / reducer / asyncStorage
 	- TODO:
 		+ configure data flow including:
 			- new deck addition

@@ -11,7 +11,7 @@ class QuizList extends Component {
 	}
 
 	goToDeck(nav, quiz) {
-		nav.navigate("QuizDetail", { quiz })
+		nav.navigate("QuizBreakdown", { quiz })
 	}
 
 	renderQuiz({ item, key }) {

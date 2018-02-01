@@ -4,7 +4,7 @@ import { styles } from "./styles"
 
 import { Container, Title, Button, Input, Toggle } from "../Common"
 
-export default class NewCard extends Component {
+export default class AddCardForm extends Component {
 	state = {
 		cardName: "",
 		cardAnswer: "",

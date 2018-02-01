@@ -11,7 +11,7 @@ import { styles } from "./styles"
 
 import { Container, Title, Button, Input } from "../Common"
 
-export default class NewQuiz extends Component {
+export default class AddQuizForm extends Component {
 	state = {
 		quizName: ""
 	}
