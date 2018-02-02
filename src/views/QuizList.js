@@ -10,7 +10,7 @@ class QuizList extends Component {
 		this.renderQuiz = this.renderQuiz.bind(this)
 	}
 
-	goToDeck(nav, quiz) {
+	goToDeck(nav, quiz) {	
 		nav.navigate("QuizBreakdown", { quiz })
 	}
 
@@ -27,7 +27,7 @@ class QuizList extends Component {
 
 	render() {
 		let { quizzes } = this.props
-
+		console.log(quizzes)
 		return (
 			<FlatList
 				data={quizzes}
