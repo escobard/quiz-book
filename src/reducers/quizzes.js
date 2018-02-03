@@ -8,10 +8,12 @@ export default function quizzes(state = demoQuizzes, action) {
 	console.log('QUIZ', quiz)
 	switch(type){
 		case ADD_QUIZ:
+			
 			let quizList = { 
 					...state,
-					...quiz 
+					...{type: quiz} 
 			}
+
 			return Object.values(quizList)
 		default:
 

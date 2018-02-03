@@ -17,7 +17,7 @@ export default class QuizDescription extends Component {
 		return (
 			<Container addStyles={styles.centered}>
 				<Title text={title} />
-				<Title isSubtitle={true} text={`${cardNumber} ${numberText}`} />
+				<Title isSubtitle={true} text={subText} />
 				<Button text={"Add Card"} handler={addCard} />
 				<Button text={"Start Quiz"} handler={startQuiz} />
 			</Container>

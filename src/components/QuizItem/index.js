@@ -9,12 +9,12 @@ export default class QuizItem extends Component {
 	render() {
 		let { nav, quiz: { title, questions } } = this.props
 
-		let cardNumber = 'No cards'
+		let cardNumber = questions.length ? `Cards: ${questions.length}`  : '0'
 
 		return (
 			<Button
 				text={title}
-				btnText={`Cards: ${cardNumber}`}
+				btnText={cardNumber}
 				handler={nav}
 				isQuizItem={true}
 				addStyles={styles.subtitle}
