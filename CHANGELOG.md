@@ -1,18 +1,23 @@
 # CHANGELOG - Quiz Book - react-native && react-redux  
 
+##v0.8
+	- TODO:
+		+ configure data flow including:
+			- action for storage / fetching from AsyncStorage
+		+ tune some functionality:
+			- Add score functionality / render methods.
+			- Add validation to both forms
+			- Optionally add card deletion / deck deletion mechanisms.
+
 ##v0.7
 	- COMPLETED:
 		- Refactor of most application code.
 		- Child component inherited data cleanup
-		- Ready for action / reducer / asyncStorage
-	- TODO:
 		+ configure data flow including:
 			- action for new deck addition
+	- TODO:
 			- action for new card addition
-			- action for storage / fetching from AsyncStorage
-		+ tune some functionality:
-			- Add score functionality / render methods
-			- Optionally add card deletion / deck deletion mechanisms.
+
 
 ##v0.6
 	- COMPLETED:

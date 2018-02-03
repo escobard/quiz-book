@@ -9,19 +9,18 @@ export default function quizzes(state = demoQuizzes, action) {
 	switch(type){
 		case ADD_QUIZ:
 			
-			let quizList = { 
+			return { 
 					...state,
 					...{type: quiz} 
 			}
 
-			return Object.values(quizList)
 		default:
 
 			// returns a sorted array with ES6
 			// return Object.keys(obj).map(key => obj[key]);
 
 			// returns a sorted array with ES7
-			return Object.values(state)
+			return state
 		}
 
 

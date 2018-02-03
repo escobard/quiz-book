@@ -26,12 +26,12 @@ class QuizList extends Component {
 	}
 
 	render() {
-		let { quizzes } = this.props
-		console.log(quizzes)
+		
+		let keyedQuizzes = Object.values(this.props.quizzes)
 		
 		return (
 			<FlatList
-				data={quizzes}
+				data={keyedQuizzes}
 				keyExtractor={quiz => quiz.title}
 				renderItem={this.renderQuiz}
 				style={{ backgroundColor: "white" }}
