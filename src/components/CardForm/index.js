@@ -1,22 +1,31 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 
-import { styles } from "./styles"
+import { styles } from "./styles";
 
-import { Container, Title, Button, Input, Toggle } from "../Common"
+import { Container, Title, Button, Input, Toggle } from "../Common";
 
 export default class CardForm extends Component {
 	state = {
-		cardName: "",
-		cardAnswer: "",
+		question: "",
+		answer: "",
 		correctActive: false,
 		incorrectActive: false
 	}
 
-	cardInput = cardName => {
-		console.log("INPUT", cardName)
+	addCard(question, answer, quizTitle, correctActive, incorrectActive, addCard, goBack) {
+
+		let questions = {question, answer}
+
+		addCard(questions, quizTitle)
+
+		goBack()
+	}
+
+	cardInput = question => {
+		console.log("INPUT", question);
 		this.setState({
-			cardName
-		})
+			question
+		});
 	}
 
 	correctPress() {
@@ -33,22 +42,20 @@ export default class CardForm extends Component {
 		})
 	}
 
-	answerInput = cardAnswer => {
-		console.log("ANSWER INPUT", cardAnswer)
+	answerInput = answer => {
+		console.log("ANSWER INPUT", answer);
 		this.setState({
-			cardAnswer
+			answer
 		})
 	}
 
 	render() {
-		let {state: {
-			cardName,
-			cardAnswer,
-			correctActive,
-			incorrectActive
-		},props: { goBack, addCard }} = this
-		
-		console.log("this state", this.state)
+		let {
+			state: { question, answer, correctActive, incorrectActive },
+			props: { goBack, addCard, quizTitle }
+		} = this
+
+		console.log("this state", this.state);
 
 		return (
 			<Container formContainer={true}>
@@ -58,13 +65,13 @@ export default class CardForm extends Component {
 					text={"Each card must contain an answer and a question"}
 				/>
 				<Input
-					input={cardName}
+					input={question}
 					placeholder={"Enter a question"}
 					onChangeText={this.cardInput}
 					addStyles={styles.addMargin}
 				/>
 				<Input
-					input={cardAnswer}
+					input={answer}
 					placeholder={"Enter the answer to the question"}
 					onChangeText={this.answerInput}
 					addStyles={styles.addMargin}
@@ -77,9 +84,20 @@ export default class CardForm extends Component {
 					isCorrect={correctActive}
 					isIncorrect={incorrectActive}
 				/>
-				<Button text={"Add Card"} handler={addCard} />
+				<Button
+					text={"Add Card"}
+					handler={() => this.addCard(
+						question,
+						answer,
+						quizTitle,
+						correctActive,
+						incorrectActive,
+						addCard,
+						goBack
+					)}
+				/>
 				<Button text={"Cancel"} handler={goBack} />
 			</Container>
-		)
+		);
 	}
 }
