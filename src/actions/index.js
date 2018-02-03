@@ -1,8 +1,8 @@
 import { ADD_QUIZ } from "./types"
 
-export function addQuiz(title) {
+export function addQuiz(quiz) {
 	return {
 		type: ADD_QUIZ,
-		title
+		quiz
 	}
 }

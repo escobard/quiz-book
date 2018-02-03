@@ -8,40 +8,43 @@ import {
 } from "react-native"
 
 import { styles } from "./styles"
+import { quizObject } from "./utils"
 
 import { Container, Title, Button, Input } from "../Common"
 
-export default class AddQuizForm extends Component {
+export default class QuizForm extends Component {
 	state = {
-		quizName: ""
+		name: ""
 	}
 
-	textChange = quizName => {
-		console.log("INPUT", quizName)
+	textChange = name => {
+		console.log("INPUT", name)
 		this.setState({
-			quizName
+			name
 		})
 	}
 
-	addQuiz = () => {
-		// will contain the prop for navigating to each quiz
-		console.log("PRESSED")
+	addQuiz = (name, addQuiz, nav) => {
+		let quiz = quizObject(name)
+		addQuiz(quiz)
+		nav("QuizBreakdown",{ quiz })
 	}
 
 	render() {
-		let { quizName } = this.state
+		let { name } = this.state
+		let { addQuiz, nav } = this.props
 
 		return (
 			<Container formContainer={true}>
 				<Title text={"Create a Quiz"} addStyles={styles.addHeight} />
 				<Input
-					input={quizName}
+					input={name}
 					placeholder={"Give your quiz a name"}
 					onChangeText={this.textChange}
 				/>
 				<Button
 					text={"Add Quiz"}
-					handler={this.addQuiz}
+					handler={() => this.addQuiz(name, addQuiz, nav)}
 					addStyles={styles.addMargin}
 				/>
 			</Container>

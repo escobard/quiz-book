@@ -1,23 +1,27 @@
-import { quizData, newTest } from "../constants"
+import { demoQuizzes } from "../constants"
 
 import { ADD_QUIZ } from "../actions/types"
 
-export default function quizzes(state = quizData, action) {
+export default function quizzes(state = demoQuizzes, action) {
 	
-	switch(action.type){
+	let { type, quiz } = action
+	console.log('QUIZ', quiz)
+	switch(type){
 		case ADD_QUIZ:
-
+			let quizList = { 
+					...state,
+					...quiz 
+			}
+			return Object.values(quizList)
 		default:
-			
-			
+
 			// returns a sorted array with ES6
 			// return Object.keys(obj).map(key => obj[key]);
 
 			// returns a sorted array with ES7
-			return [ ...state, ...newTest ]
+			return Object.values(state)
 		}
 
-	// console.log('REDUCER STATE', state)
 
 }
 

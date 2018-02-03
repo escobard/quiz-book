@@ -18,7 +18,7 @@ class QuizList extends Component {
 		// console.log('QUIZ WITHIN LOOP', item.title)
 		return (
 			<QuizItem
-				id={key}
+				key={key}
 				quiz={item}
 				nav={() => this.goToDeck(this.props.navigation, item)}
 			/>
@@ -28,6 +28,7 @@ class QuizList extends Component {
 	render() {
 		let { quizzes } = this.props
 		console.log(quizzes)
+		
 		return (
 			<FlatList
 				data={quizzes}

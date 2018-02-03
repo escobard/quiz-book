@@ -4,12 +4,13 @@ import { connect } from "react-redux"
 
 import { addQuiz } from "../actions"
 
-import AddQuizForm from "../components/AddQuizForm"
+import QuizForm from "../components/QuizForm"
 
 class AddQuiz extends Component {
 	render() {
-		let { addQuiz } = this.props
-		return <AddQuizForm addQuiz={addQuiz} />
+		let { addQuiz, navigation:{ navigate }} = this.props
+		console.log('PROPS', this.props)
+		return <QuizForm addQuiz={addQuiz} nav={navigate}/>
 	}
 }
 
