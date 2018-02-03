@@ -4,6 +4,9 @@
 	- TODO:
 		+ configure data flow including:
 			- action for storage / fetching from AsyncStorage
+			- Data update each time a new card / deck is added:
+				+ Either have the application update + fetch the stored decks from Async to reload global data
+				+ Or have the application state update every time, and only fetch data form async during init.
 		+ tune some functionality:
 			- Add score functionality / render methods.
 			- Add validation to both forms
@@ -15,9 +18,7 @@
 		- Child component inherited data cleanup
 		+ configure data flow including:
 			- action for new deck addition
-	- TODO:
 			- action for new card addition
-
 
 ##v0.6
 	- COMPLETED:
