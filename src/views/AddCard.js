@@ -2,13 +2,16 @@ import React, { Component } from "react"
 import { FlatList } from "react-native"
 import { connect } from "react-redux"
 
-import AddCardForm from "../components/AddCardForm"
+import { addCard } from "../actions"
+
+import CardForm from "../components/CardForm"
 
 class AddCard extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			test: ""
+			question: "",
+			answer: ""
 		}
 	}
 
@@ -22,26 +25,31 @@ class AddCard extends Component {
 		nav.goBack()
 	}
 
-	addCard(nav, quiz) {
-		// this will also need to handle the add to deck action
+	addCard(nav, addCard) {
+		
+
+		addCard(card)
+
 		nav.goBack()
 	}
 
 	render() {
-		let { navigation } = this.props
-		console.log("PROPS", this.props)
+		let { navigation, addCard } = this.props
+		let { state: { params: { title }}} = navigation
+		console.log("PROPS IN QUIZ", this.props)
 
 		return (
-			<AddCardForm
+			<CardForm
 				goBack={() => this.goBack(navigation)}
-				addCard={() => this.addCard(navigation)}
+				addCard={addCard}
+				quizTitle={title}
 			/>
 		)
 	}
 }
 
-function mapStateToProps({ quizList }) {
-	return { quizList }
+function mapStateToProps({ quizzes }) {
+	return { quizzes }
 }
 
-export default connect(mapStateToProps)(AddCard)
+export default connect(mapStateToProps, { addCard })(AddCard)

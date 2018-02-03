@@ -10,7 +10,7 @@ class QuizList extends Component {
 		this.renderQuiz = this.renderQuiz.bind(this)
 	}
 
-	goToDeck(nav, quiz) {
+	goToDeck(nav, quiz) {	
 		nav.navigate("QuizBreakdown", { quiz })
 	}
 
@@ -18,7 +18,7 @@ class QuizList extends Component {
 		// console.log('QUIZ WITHIN LOOP', item.title)
 		return (
 			<QuizItem
-				id={key}
+				key={key}
 				quiz={item}
 				nav={() => this.goToDeck(this.props.navigation, item)}
 			/>
@@ -26,11 +26,12 @@ class QuizList extends Component {
 	}
 
 	render() {
-		let { quizList } = this.props
-
+		
+		let keyedQuizzes = Object.values(this.props.quizzes)
+		
 		return (
 			<FlatList
-				data={quizList}
+				data={keyedQuizzes}
 				keyExtractor={quiz => quiz.title}
 				renderItem={this.renderQuiz}
 				style={{ backgroundColor: "white" }}
@@ -39,7 +40,7 @@ class QuizList extends Component {
 	}
 }
 
-function mapStateToProps({ quizList }) {
-	return { quizList }
+function mapStateToProps({ quizzes }) {
+	return { quizzes }
 }
 export default connect(mapStateToProps)(QuizList)

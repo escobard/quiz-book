@@ -1,5 +1,5 @@
 // base quiz data from the project description
-export const quizData = {
+export const demoQuizzes = {
   React: {
     title: "React",
     questions: [

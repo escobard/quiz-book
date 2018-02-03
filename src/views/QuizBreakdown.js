@@ -32,9 +32,9 @@ class QuizBreakdown extends Component {
 	}
 }
 
-function mapStateToProps({ quizList }) {
+function mapStateToProps({ quizzes }) {
 	// will be modified to work with individual quizes instead of base constant
-	return { quizPlaceholder: quizList[0] }
+	return { quizPlaceholder: quizzes[0] }
 }
 
 export default connect(mapStateToProps)(QuizBreakdown)

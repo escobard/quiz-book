@@ -1,10 +1,47 @@
-# README - Mobile Flashcards - react-native && react-redux  
+# README - Quiz Book - react-native && react-redux  
 
-This repository contains all the files for the final project of the [React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019) with [Udacity](https://www.udacity.com/). 
+The client side of this project was built around the criteria of the final project of the [React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019) with [Udacity](https://www.udacity.com/).
+
+The server and data side of this project will be built from the material learned from:
+- [The Complete Developers Guide to MongoDB] (https://www.udemy.com/the-complete-developers-guide-to-mongodb)
+- [Server Side Rendering with React and Redux] (https://www.udemy.com/server-side-rendering-with-react-and-redux) 
 
 ## Project Criteria
 
-This application is a quiz application that must meet the following criteria:
+The main purpose of this application is to provide the following features:
+	
+	- A quiz game, with public scoreboards including:
+		+ Basic user profiles.
+		+ User dashboard, with metrics.
+			* Showing quizzes, (option to display public or not)
+			* Show scores (always public, with quiz names only displayed)
+		+ Scoreboard
+
+This application will be built to showcase the following technologies and practices:
+	
+	- Consistent data retention with MongoDB / Mongoose
+	- REST API to manage HTTP requests with Express / Node
+	- Render the client interface with React Native / Redux
+	- Testing of server, data, and client applications with Mocha / Enzyme / Jest
+	- Manage user Authentication with oAuth / Passport 
+	- Offline caching with AsyncStorage
+
+Possible future technologies include:
+
+	- GraphQL / Apollo for better offline - first utilization
+	- Server Side Rendering for optimized performance
+	- React application for web devices
+
+Delivery planning:
+
+	- For v1 the front end and quiz functionality will be completed including:
+		- Quiz game.
+		- Basic quiz / card addition.
+		- Score based on card incorrect / correct booleans.
+	- For v2 the back end will be completed, and the front end will be updated with:
+		- Animations (front end)
+		- Score board / User base ( front end and back end)
+		- AsyncStorage sync. with MongoDB
 
 (Expand upon criteria in a later version)
 
@@ -42,7 +79,15 @@ $ npm start (or yarn start)
 ```
 
 
-## Most Recent Update - v0.6
+## Most Recent Update - v0.7
+
+##v0.7
+	- COMPLETED:
+		- Refactor of most application code.
+		- Child component inherited data cleanup
+		+ configure data flow including:
+			- action for new deck addition
+			- action for new card addition
 
 ##v0.6
 	- COMPLETED:
@@ -60,20 +105,17 @@ $ npm start (or yarn start)
 			- AddQuiz view
 		
 
-## v0.4
-	- COMPLETED:
-		+ create base navigation for quiz list and quiz components
-		+ style base components 
 
-
-## To Do's - v0.7
+## To Do's - v0.8
 	- TODO:
 		+ configure data flow including:
-			- new deck addition
-			- new card addition
-			- storage / fetching from AsyncStorage
+			- action for storage / fetching from AsyncStorage
+			- Data update each time a new card / deck is added:
+				+ Either have the application update + fetch the stored decks from Async to reload global data
+				+ Or have the application state update every time, and only fetch data form async during init.
 		+ tune some functionality:
-			- Add score functionality / render methods
+			- Add score functionality / render methods.
+			- Add validation to both forms
 			- Optionally add card deletion / deck deletion mechanisms.
 
 ## Known Bugs

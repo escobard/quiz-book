@@ -2,11 +2,15 @@ import React, { Component } from "react"
 import { View, Text } from "react-native"
 import { connect } from "react-redux"
 
-import AddQuizForm from "../components/AddQuizForm"
+import { addQuiz } from "../actions"
+
+import QuizForm from "../components/QuizForm"
 
 class AddQuiz extends Component {
 	render() {
-		return <AddQuizForm />
+		let { addQuiz, navigation:{ navigate }} = this.props
+		console.log('PROPS', this.props)
+		return <QuizForm addQuiz={addQuiz} nav={navigate}/>
 	}
 }
 
@@ -15,4 +19,4 @@ function mapStateToProps(state) {
 	return { state }
 }
 
-export default connect(mapStateToProps)(AddQuiz)
+export default connect(mapStateToProps, { addQuiz })(AddQuiz)
