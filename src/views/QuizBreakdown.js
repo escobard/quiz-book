@@ -19,9 +19,9 @@ class QuizBreakdown extends Component {
 
 	render() {
 		// this should be refactored into a reducer later
-		let { navigation } = this.props
-		let { navigate, state: { params: { quiz } } } = navigation
-
+		let { navigation, quizzes } = this.props
+		let { navigate, state: { params: { quiz: { title } } } } = navigation
+		let quiz = quizzes[title]
 		return (
 			<QuizDescription
 				addCard={() => navigate("AddCard", quiz)}
@@ -33,8 +33,7 @@ class QuizBreakdown extends Component {
 }
 
 function mapStateToProps({ quizzes }) {
-	// will be modified to work with individual quizes instead of base constant
-	return { quizPlaceholder: quizzes[0] }
+	return { quizzes }
 }
 
 export default connect(mapStateToProps)(QuizBreakdown)
