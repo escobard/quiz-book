@@ -28,7 +28,6 @@ class AddCard extends Component {
 	render() {
 		let { navigation, addCard } = this.props
 		let { state: { params: { title } } } = navigation
-		console.log("PROPS IN QUIZ", this.props)
 
 		return (
 			<CardForm

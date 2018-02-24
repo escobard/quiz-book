@@ -20,13 +20,15 @@ class QuizBreakdown extends Component {
 	render() {
 		// this should be refactored into a reducer later
 		let { navigation, quizzes } = this.props
-		let { navigate, state: { params: { quiz: { title } } } } = navigation
-		let quiz = quizzes[title]
+		let { navigate, state: { params: { quiz } } } = navigation
+		let title = quiz.title
+		let quizUpdate = quizzes[title]
+		let checkQuiz = quizUpdate ? quizUpdate : quiz
 		return (
 			<QuizDescription
-				addCard={() => navigate("AddCard", quiz)}
-				startQuiz={() => navigate("QuizView", quiz)}
-				quiz={quiz}
+				addCard={() => navigate("AddCard", checkQuiz)}
+				startQuiz={() => navigate("QuizView", checkQuiz)}
+				quiz={checkQuiz}
 			/>
 		)
 	}
