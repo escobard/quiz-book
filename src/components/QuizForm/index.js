@@ -27,7 +27,8 @@ export default class QuizForm extends Component {
 	addQuiz = (name, addQuiz, nav) => {
 		let quiz = quizObject(name)
 		addQuiz(quiz)
-		nav("QuizBreakdown",{ quiz })
+		nav("QuizList")
+		nav("QuizBreakdown", { quiz })
 		this.setState({
 			name: ""
 		})
