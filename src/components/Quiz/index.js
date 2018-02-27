@@ -17,10 +17,6 @@ export default class Quiz extends Component {
 			currentCard: 0,
 			showScore: false
 		}
-
-		this.handleAnswer = this.handleAnswer.bind(this)
-		this.renderCards = this.renderCards.bind(this)
-		this.nextCard = this.nextCard.bind(this)
 	}
 
 	componentDidMount() {
@@ -29,7 +25,13 @@ export default class Quiz extends Component {
 		})
 	}
 
-	renderCards(questions, showAnswer, cardNumber, currentCard, showScore) {
+	renderCards = (
+		questions,
+		showAnswer,
+		cardNumber,
+		currentCard,
+		showScore
+	) => {
 		// this should be refactored into a separate component in the future
 		return questions.map((item, key) => {
 			// checks current card number vs key
@@ -47,16 +49,19 @@ export default class Quiz extends Component {
 			let { answer, question } = item
 
 			let content = showAnswer ? answer : question
-
+			let checkStyles = showAnswer ? styles.answer : styles.question
 			return (
 				<Container key={key}>
-					<Title text={content} addStyles={styles.title} />
+					<Title
+						text={content}
+						addStyles={[styles.title, checkStyles]}
+					/>
 				</Container>
 			)
 		})
 	}
 
-	renderButtons(showAnswer, cardNumber, currentCard, goBack) {
+	renderButtons = (showAnswer, cardNumber, currentCard, goBack) => {
 		let btnContent = showAnswer ? "Show Question" : "Show Answer"
 
 		return (
@@ -83,11 +88,10 @@ export default class Quiz extends Component {
 		)
 	}
 
-	nextCard(showAnswer, cardNumber, currentCard) {
-
+	nextCard = (showAnswer, cardNumber, currentCard) => {
 		let next = currentCard + 1
 
-		let showScore = cardCount(cardNumber, currentCard);
+		let showScore = cardCount(cardNumber, currentCard)
 
 		this.setState({
 			currentCard: next,
@@ -96,13 +100,13 @@ export default class Quiz extends Component {
 		})
 	}
 
-	handleAnswer(showAnswer) {
+	handleAnswer = showAnswer => {
 		this.setState({
 			showAnswer: !showAnswer
 		})
 	}
 
-	renderCard() {
+	renderCard = () => {
 		let { quiz, goBack, restartQuiz } = this.props
 		let { showAnswer, cardNumber, currentCard, showScore } = this.state
 		let { title, questions } = quiz

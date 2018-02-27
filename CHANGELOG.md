@@ -12,7 +12,6 @@
 				- Testing with Jest
 				- Add delete / edit functionality to deck and cards
 
-
 ## v0.9
 	- TODO:
 		- Add score functionality, incorrect / correct handlers.
