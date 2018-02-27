@@ -8,9 +8,8 @@ import QuizForm from "../components/QuizForm"
 
 class AddQuiz extends Component {
 	render() {
-		let { addQuiz, navigation:{ navigate }} = this.props
-		console.log('PROPS', this.props)
-		return <QuizForm addQuiz={addQuiz} nav={navigate}/>
+		let { addQuiz, navigation: { navigate } } = this.props
+		return <QuizForm addQuiz={addQuiz} nav={navigate} />
 	}
 }
 

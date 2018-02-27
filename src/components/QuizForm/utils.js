@@ -1,10 +1,6 @@
-export const quizObject = (name) => {
-	return (
-		{
-			title: name,
-			questions: []
-		}
-
-	)
-
-} 
+export const quizObject = name => {
+	return {
+		title: name,
+		questions: []
+	}
+}
