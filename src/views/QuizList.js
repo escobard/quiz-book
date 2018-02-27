@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 
 import { fetchQuizzes } from "../actions"
 import QuizItem from "../components/QuizItem"
-import { getQuizzes } from "../utils"
+import { getQuizzes, updateCache } from "../utils"
 
 class QuizList extends Component {
 	constructor(props) {
@@ -15,14 +15,22 @@ class QuizList extends Component {
 		// for whatever reason, the dispatch must be manually applied to dispatch the action with
 		// react native - this is not encountered on native redux
 		const { dispatch } = this.props
+
+		// this should be refactored into the actions/api file with redux-thunk in the future
 		getQuizzes()
 			.then(results => dispatch(fetchQuizzes(results)))
 			.catch(error => console.log("error", error))
 	}
+	componentDidUpdate() {
+		// this causes an inf. loop which causes new data to not be loaded - to get this to work it should only
+		// trigger on NEW state changes
+		const { quizzes } = this.props
+		// this should be refactored into the actions/api file with redux-thunk in the future
+		updateCache(quizzes).catch(error => console.log("error", error))
+	}
 	goToDeck(nav, quiz) {
 		nav.navigate("QuizBreakdown", { quiz })
 	}
-
 	renderQuiz({ item, key }) {
 		// console.log('QUIZ WITHIN LOOP', item.title)
 		return (

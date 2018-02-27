@@ -15,22 +15,6 @@ export function getQuizzes() {
 }
 
 // this should be expanded with the mongoDB data later on
-export function createCache(demoQuizzes) {
-	return AsyncStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(demoQuizzes))
-}
-
-export const cache = async () => {
-	var value, collect
-	var value, collect
-	try {
-		value = await AsyncStorage.getItem(QUIZ_STORAGE_KEY).then(values => {
-			collect = values
-			console.log("Then: ", values)
-		})
-	} catch (error) {
-		console.log("Error: ", error)
-	}
-	collect = JSON.parse(collect)
-	console.log("Final: ", collect)
-	return collect
+export function updateCache(quizzes) {
+	return AsyncStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(quizzes))
 }
