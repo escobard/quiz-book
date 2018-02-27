@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
-import { styles } from "./styles";
+import { styles } from "./styles"
 
-import { Container, Title, Button, Input, Toggle } from "../Common";
+import { Container, Title, Button, Input, Toggle } from "../Common"
 
 export default class CardForm extends Component {
 	state = {
@@ -12,9 +12,16 @@ export default class CardForm extends Component {
 		incorrectActive: false
 	}
 
-	addCard(question, answer, quizTitle, correctActive, incorrectActive, addCard, goBack) {
-
-		let questions = {question, answer}
+	addCard(
+		question,
+		answer,
+		quizTitle,
+		correctActive,
+		incorrectActive,
+		addCard,
+		goBack
+	) {
+		let questions = { question, answer }
 
 		addCard(questions, quizTitle)
 
@@ -22,10 +29,10 @@ export default class CardForm extends Component {
 	}
 
 	cardInput = question => {
-		console.log("INPUT", question);
+		console.log("INPUT", question)
 		this.setState({
 			question
-		});
+		})
 	}
 
 	correctPress() {
@@ -43,7 +50,7 @@ export default class CardForm extends Component {
 	}
 
 	answerInput = answer => {
-		console.log("ANSWER INPUT", answer);
+		console.log("ANSWER INPUT", answer)
 		this.setState({
 			answer
 		})
@@ -54,8 +61,6 @@ export default class CardForm extends Component {
 			state: { question, answer, correctActive, incorrectActive },
 			props: { goBack, addCard, quizTitle }
 		} = this
-
-		console.log("this state", this.state);
 
 		return (
 			<Container formContainer={true}>
@@ -86,18 +91,20 @@ export default class CardForm extends Component {
 				/>
 				<Button
 					text={"Add Card"}
-					handler={() => this.addCard(
-						question,
-						answer,
-						quizTitle,
-						correctActive,
-						incorrectActive,
-						addCard,
-						goBack
-					)}
+					handler={() =>
+						this.addCard(
+							question,
+							answer,
+							quizTitle,
+							correctActive,
+							incorrectActive,
+							addCard,
+							goBack
+						)
+					}
 				/>
 				<Button text={"Cancel"} handler={goBack} />
 			</Container>
-		);
+		)
 	}
 }

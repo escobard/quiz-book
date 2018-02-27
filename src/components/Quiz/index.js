@@ -40,18 +40,15 @@ export default class Quiz extends Component {
 				return
 			}
 
-			/*
-			console.log('item', item)	
-			console.log('key', key)
-			console.log('content', content)
-			*/
-
 			let { answer, question } = item
 
 			let content = showAnswer ? answer : question
 			let checkStyles = showAnswer ? styles.answer : styles.question
+			let count = currentCard + 1 + " / " + cardNumber
+
 			return (
 				<Container key={key}>
+					<Title isSubtitle={true} text={count} />
 					<Title
 						text={content}
 						addStyles={[styles.title, checkStyles]}
@@ -110,11 +107,11 @@ export default class Quiz extends Component {
 		let { quiz, goBack, restartQuiz } = this.props
 		let { showAnswer, cardNumber, currentCard, showScore } = this.state
 		let { title, questions } = quiz
-
+		console.log("STATE WITHIN CARD", this.state)
 		if (showScore) {
 			return (
 				<Score
-					results={quiz}
+					results={this.state}
 					restartQuiz={restartQuiz}
 					goBack={goBack}
 				/>

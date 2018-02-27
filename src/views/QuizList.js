@@ -43,7 +43,6 @@ class QuizList extends Component {
 	}
 
 	render() {
-		console.log("this.props.quizzes", this.props.quizzes)
 		if (this.props.quizzes) {
 			let keyedQuizzes = Object.values(this.props.quizzes)
 			return (

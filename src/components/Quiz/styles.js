@@ -3,10 +3,7 @@ import { StyleSheet } from "react-native"
 import { space, colors } from "../../styles"
 
 export const styles = StyleSheet.create({
-	title: {
-		height: space.xxxlrg,
-		marginTop: space.xxxlrg
-	},
+	title: { marginTop: space.xxlrg },
 	answer: {
 		color: colors.orange
 	},

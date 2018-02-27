@@ -1,10 +1,11 @@
-import React, { Component } from "react"
+import React from "react"
 
 import { styles } from "./styles"
 
 import { Title, Container, Button } from "../Common"
 
 const Score = ({ results, goBack, restartQuiz }) => {
+	console.log("results", results)
 	return (
 		<Container>
 			<Title text={"Score details go here"} addStyles={styles.title} />
