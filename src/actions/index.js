@@ -15,9 +15,10 @@ export function addCard(questions, quizTitle) {
 	}
 }
 
-export function fetchQuizzes(decks) {
+export function fetchQuizzes(quizzes) {
+	console.log("QUIZZES", quizzes)
 	return {
 		type: FETCH_QUIZZES,
-		decks
+		quizzes
 	}
 }

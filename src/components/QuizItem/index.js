@@ -9,7 +9,7 @@ export default class QuizItem extends Component {
 	render() {
 		let { nav, quiz: { title, questions } } = this.props
 
-		let cardNumber = questions.length ? questions.length  : '0'
+		let cardNumber = questions.length ? questions.length : "0"
 
 		return (
 			<Button

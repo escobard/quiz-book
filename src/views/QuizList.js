@@ -11,9 +11,12 @@ class QuizList extends Component {
 		super(props)
 		this.renderQuiz = this.renderQuiz.bind(this)
 	}
-	componentDidMount() {
+	componentWillMount() {
+		// for whatever reason, the dispatch must be manually applied to dispatch the action with
+		// react native - this is not encountered on native redux
+		const { dispatch } = this.props
 		getQuizzes()
-			.then(results => fetchQuizzes(results))
+			.then(results => dispatch(fetchQuizzes(results)))
 			.catch(error => console.log("error", error))
 	}
 	goToDeck(nav, quiz) {
@@ -56,4 +59,4 @@ class QuizList extends Component {
 function mapStateToProps({ quizzes }) {
 	return { quizzes }
 }
-export default connect(mapStateToProps, { fetchQuizzes })(QuizList)
+export default connect(mapStateToProps)(QuizList)

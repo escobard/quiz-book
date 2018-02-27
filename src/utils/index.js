@@ -8,7 +8,7 @@ export function getQuizzes() {
 	return AsyncStorage.getItem(QUIZ_STORAGE_KEY).then(results => {
 		if (results === null) {
 			AsyncStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(demoQuizzes))
-			return initialDecks
+			return demoQuizzes
 		}
 		return JSON.parse(results)
 	})
