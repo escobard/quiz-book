@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import { styles } from "./styles"
-import { cardCount } from "./utils"
+import { cardCount, count } from "./utils"
 
 import { Title, Container, Button } from "../Common"
 
@@ -44,11 +44,13 @@ export default class Quiz extends Component {
 
 			let content = showAnswer ? answer : question
 			let checkStyles = showAnswer ? styles.answer : styles.question
-			let count = currentCard + 1 + " / " + cardNumber
 
 			return (
 				<Container key={key}>
-					<Title isSubtitle={true} text={count} />
+					<Title
+						isSubtitle={true}
+						text={count(currentCard, cardNumber)}
+					/>
 					<Title
 						text={content}
 						addStyles={[styles.title, checkStyles]}

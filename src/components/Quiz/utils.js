@@ -3,3 +3,6 @@ export const cardCount = (cardNumber, currentCard) => {
 		return true
 	}
 }
+
+export const count = (currentCard, cardNumber) =>
+	currentCard + 1 + " / " + cardNumber
