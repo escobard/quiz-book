@@ -1,11 +1,15 @@
 import { demoQuizzes } from "../constants"
-
-import { ADD_QUIZ, ADD_CARD } from "../actions/types"
+import { cache, createCache } from "../utils"
+import { ADD_QUIZ, ADD_CARD, FETCH_QUIZZES } from "../actions/types"
 
 export default function quizzes(state = demoQuizzes, action) {
 	let { type, quiz, questions, quizTitle } = action
-
 	switch (type) {
+		case FETCH_QUIZZES:
+			return {
+				...state,
+				...quizzes
+			}
 		case ADD_QUIZ:
 			let qTitle = quiz
 			return {

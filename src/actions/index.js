@@ -1,4 +1,4 @@
-import { ADD_QUIZ, ADD_CARD } from "./types"
+import { ADD_QUIZ, ADD_CARD, FETCH_QUIZZES } from "./types"
 
 export function addQuiz(quiz) {
 	return {
@@ -12,5 +12,12 @@ export function addCard(questions, quizTitle) {
 		type: ADD_CARD,
 		questions,
 		quizTitle
+	}
+}
+
+export function fetchQuizzes(decks) {
+	return {
+		type: FETCH_QUIZZES,
+		decks
 	}
 }

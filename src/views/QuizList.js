@@ -1,16 +1,22 @@
 import React, { Component } from "react"
-import { FlatList } from "react-native"
+import { FlatList, View, Text } from "react-native"
 import { connect } from "react-redux"
 
+import { fetchQuizzes } from "../actions"
 import QuizItem from "../components/QuizItem"
+import { getQuizzes } from "../utils"
 
 class QuizList extends Component {
 	constructor(props) {
 		super(props)
 		this.renderQuiz = this.renderQuiz.bind(this)
 	}
-
-	goToDeck(nav, quiz) {	
+	componentDidMount() {
+		getQuizzes()
+			.then(results => fetchQuizzes(results))
+			.catch(error => console.log("error", error))
+	}
+	goToDeck(nav, quiz) {
 		nav.navigate("QuizBreakdown", { quiz })
 	}
 
@@ -26,21 +32,28 @@ class QuizList extends Component {
 	}
 
 	render() {
-		
-		let keyedQuizzes = Object.values(this.props.quizzes)
-		
-		return (
-			<FlatList
-				data={keyedQuizzes}
-				keyExtractor={quiz => quiz.title}
-				renderItem={this.renderQuiz}
-				style={{ backgroundColor: "white" }}
-			/>
-		)
+		console.log("this.props.quizzes", this.props.quizzes)
+		if (this.props.quizzes) {
+			let keyedQuizzes = Object.values(this.props.quizzes)
+			return (
+				<FlatList
+					data={keyedQuizzes}
+					keyExtractor={quiz => quiz.title}
+					renderItem={this.renderQuiz}
+					style={{ backgroundColor: "white" }}
+				/>
+			)
+		} else {
+			return (
+				<View>
+					<Text>Loading...</Text>
+				</View>
+			)
+		}
 	}
 }
 
 function mapStateToProps({ quizzes }) {
 	return { quizzes }
 }
-export default connect(mapStateToProps)(QuizList)
+export default connect(mapStateToProps, { fetchQuizzes })(QuizList)

@@ -40,3 +40,5 @@ export const newTest = {
     ]
   }
 }
+
+export const QUIZ_STORAGE_KEY = "QuizBook:quizzes"

@@ -18,7 +18,6 @@ export default class QuizForm extends Component {
 	}
 
 	textChange = name => {
-		console.log("INPUT", name)
 		this.setState({
 			name
 		})
@@ -27,11 +26,11 @@ export default class QuizForm extends Component {
 	addQuiz = (name, addQuiz, nav) => {
 		let quiz = quizObject(name)
 		addQuiz(quiz)
-		nav("QuizList")
-		nav("QuizBreakdown", { quiz })
 		this.setState({
 			name: ""
 		})
+		nav("QuizList")
+		nav("QuizBreakdown", { quiz })
 	}
 
 	render() {
