@@ -29,4 +29,3 @@ export function updateQuizzes(quizzes) {
 		quizzes
 	}
 }
-

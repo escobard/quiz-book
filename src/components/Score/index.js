@@ -14,7 +14,7 @@ const Score = ({ results, goBack, restartQuiz }) => {
 	// export this into a helper file
 	let scoreMessage = (cardNumber, currentCard) => {
 		if (cardNumber === currentCard) {
-			return "Congratulations - you got them all right!"
+			return "You got them all right!"
 		}
 	}
 	return (

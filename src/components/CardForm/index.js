@@ -21,7 +21,11 @@ export default class CardForm extends Component {
 		addCard,
 		goBack
 	) {
-		let questions = { question, answer }
+		let questions = {
+			question,
+			answer,
+			isCorrect: incorrectActive ? false : true
+		}
 
 		addCard(questions, quizTitle)
 
@@ -29,7 +33,6 @@ export default class CardForm extends Component {
 	}
 
 	cardInput = question => {
-		console.log("INPUT", question)
 		this.setState({
 			question
 		})
@@ -50,7 +53,6 @@ export default class CardForm extends Component {
 	}
 
 	answerInput = answer => {
-		console.log("ANSWER INPUT", answer)
 		this.setState({
 			answer
 		})
