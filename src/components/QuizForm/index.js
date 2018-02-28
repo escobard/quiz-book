@@ -21,15 +21,13 @@ export default class QuizForm extends Component {
 	}
 
 	textChange = name => {
+		let { errors, hasErrors } = this.state
 		this.setState({
 			name
 		})
+		this.validation(errors, hasErrors, name)
 	}
-
-	addQuiz = (name, addQuiz, nav) => {
-		let { errors, hasErrors } = this.state
-		console.log("STATE", this.state)
-
+	validation = (errors, hasErrors, name) => {
 		// this object determines the strings
 		let errorStrings = {
 			empty: "The quiz name cannot be left empty",
@@ -60,21 +58,25 @@ export default class QuizForm extends Component {
 				hasErrors: true,
 				errors
 			})
+			return false
 		} else {
 			// otherwise reset` the state
 			this.setState({
 				hasErrors: false,
 				errors: []
 			})
+			return true
 		}
+	}
+	addQuiz = (name, addQuiz, nav) => {
+		let { errors, hasErrors } = this.state
+		let check = this.validation(errors, hasErrors, name)
 
-		if (errors.length === 0 && hasErrors === false) {
-			console.log("VALIDATED")
+		if (check) {
 			let quiz = quizObject(name)
 			addQuiz(quiz)
 			this.setState({
-				name: "",
-				errors: []
+				name: ""
 			})
 			nav("QuizList")
 			nav("QuizBreakdown", { quiz })
@@ -83,7 +85,6 @@ export default class QuizForm extends Component {
 
 	showErrors = (errors, hasErrors) => {
 		if (hasErrors === true) {
-			console.log("ACTIVATED")
 			return errors.map((error, index) => {
 				return (
 					<Title
