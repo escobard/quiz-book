@@ -41,4 +41,4 @@ export const newTest = {
   }
 }
 
-export const QUIZ_STORAGE_KEY = "QuizBook:quizzes"
+export const QUIZ_STORAGE_KEY = "QuizBook:quizzes1"

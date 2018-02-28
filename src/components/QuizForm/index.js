@@ -14,7 +14,9 @@ import { Container, Title, Button, Input } from "../Common"
 
 export default class QuizForm extends Component {
 	state = {
-		name: ""
+		name: "",
+		hasErrors: false,
+		errors: []
 	}
 
 	textChange = name => {
@@ -24,13 +26,41 @@ export default class QuizForm extends Component {
 	}
 
 	addQuiz = (name, addQuiz, nav) => {
-		let quiz = quizObject(name)
-		addQuiz(quiz)
-		this.setState({
-			name: ""
-		})
-		nav("QuizList")
-		nav("QuizBreakdown", { quiz })
+		let { errors, hasErrors } = this.state
+		console.log("ERRORS", errors)
+		console.log("name", name)
+		console.log("error length", errors.length)
+		if (
+			name === "" &&
+			!errors.includes("The quiz name cannot be left empty")
+		) {
+			errors.push("The quiz name cannot be left empty")
+		}
+
+		if (
+			name.length > 40 &&
+			!errors.includes("The quiz name cannot be left empty")
+		) {
+			errors.push("The quiz name cannot be greated than 40 characters")
+		}
+
+		if (errors.length > 1) {
+			this.setState({
+				hasErrors: true
+			})
+		}
+
+		if (errors.length === 0 && hasErrors === false) {
+			console.log("VALIDATED")
+			let quiz = quizObject(name)
+			addQuiz(quiz)
+			this.setState({
+				name: "",
+				errors: []
+			})
+			nav("QuizList")
+			nav("QuizBreakdown", { quiz })
+		}
 	}
 
 	render() {
