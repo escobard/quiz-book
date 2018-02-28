@@ -27,9 +27,7 @@ export default class QuizForm extends Component {
 
 	addQuiz = (name, addQuiz, nav) => {
 		let { errors, hasErrors } = this.state
-		console.log("ERRORS", errors)
-		console.log("name", name)
-		console.log("error length", errors.length)
+		console.log("STATE", this.state)
 		if (
 			name === "" &&
 			!errors.includes("The quiz name cannot be left empty")
@@ -44,9 +42,10 @@ export default class QuizForm extends Component {
 			errors.push("The quiz name cannot be greated than 40 characters")
 		}
 
-		if (errors.length > 1) {
+		if (errors.length >= 1) {
 			this.setState({
-				hasErrors: true
+				hasErrors: true,
+				errors
 			})
 		}
 
@@ -63,8 +62,24 @@ export default class QuizForm extends Component {
 		}
 	}
 
+	showErrors = (errors, hasErrors) => {
+		if (hasErrors === true) {
+			console.log("ACTIVATED")
+			return errors.map((error, index) => {
+				return (
+					<Title
+						key={index}
+						isSubtitle={true}
+						text={error}
+						addStyles={styles.errorMessage}
+					/>
+				)
+			})
+		}
+	}
+
 	render() {
-		let { name } = this.state
+		let { name, errors, hasErrors } = this.state
 		let { addQuiz, nav } = this.props
 
 		return (
@@ -75,6 +90,7 @@ export default class QuizForm extends Component {
 					placeholder={"Give your quiz a name"}
 					onChangeText={this.textChange}
 				/>
+				{this.showErrors(errors, hasErrors)}
 				<Button
 					text={"Add Quiz"}
 					handler={() => this.addQuiz(name, addQuiz, nav)}

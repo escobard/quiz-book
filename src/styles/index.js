@@ -13,6 +13,7 @@ export const colors = {
 }
 
 export const fonts = {
+	error: 14,
 	smallSub: 20,
 	subtitle: 24,
 	title: 32
@@ -74,6 +75,11 @@ export const common = {
 	subtitle: {
 		fontSize: fonts.subtitle,
 		textAlign: "center"
+	},
+	errorMessage: {
+		fontSize: fonts.errorMessage,
+		color: colors.red,
+		marginTop: space.med
 	},
 	btn: {
 		backgroundColor: colors.purple,
