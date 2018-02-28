@@ -29,17 +29,31 @@ export default class QuizForm extends Component {
 	addQuiz = (name, addQuiz, nav) => {
 		let { errors, hasErrors } = this.state
 		console.log("STATE", this.state)
-		let valErrors = {
+
+		// this object determines the strings
+		let errorStrings = {
 			empty: "The quiz name cannot be left empty",
-			emptyCon: name === "" && !errors.includes(empty),
-			long: "The quiz name cannot be greated than 40 characters",
-			longCon: name > 40 && !errors.includes(long)
+			long: "The quiz name cannot be greated than 40 characters"
 		}
-		let { empty, long, emptyCon, longCon } = valErrors
+		// this object determines the conditions
+		let errorConditions = {
+			empty: name === "" && !errors.includes(errorStrings.empty),
+			long: name > 40 && !errors.includes(errorStrings.long)
+		}
+		// this array determines the errors
+		let valErrors = [
+			{
+				error: errorStrings.empty,
+				condition: errorConditions.empty
+			},
+			{
+				error: errorStrings.long,
+				condition: errorConditions.long
+			}
+		]
 
-		errors = validation(emptyCon, errors, empty)
-		errors = validation(longCon, errors, long)
-
+		errors = validation(valErrors, errors)
+		console.log("VALERRORS", errors)
 		// then check in here if the variables are true, to handle the proper logic
 		if (errors.length >= 1) {
 			this.setState({

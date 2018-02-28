@@ -1,12 +1,11 @@
-export const validation = (condition, array, string) => {
-	// try making each val condition a variable
-	console.log(condition)
-	if (condition) {
-		array.push(string)
-		return array
-	} else {
-		let forDeletion = string
-		return (array = array.filter(item => !forDeletion.includes(item)))
-		console.log("ARRAY IN FUNCT", array)
-	}
+export const validation = (errors, array) => {
+	errors.map((errorObject, index) => {
+		let { error, condition } = errorObject
+		if (condition) {
+			array.push(error)
+		} else {
+			array = array.filter(item => !error.includes(item))
+		}
+	})
+	return array
 }
