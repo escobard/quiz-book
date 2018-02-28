@@ -10,6 +10,7 @@ import {
 import { styles } from "./styles"
 import { quizObject } from "./utils"
 
+import { validation } from "../../utils/validation"
 import { Container, Title, Button, Input } from "../Common"
 
 export default class QuizForm extends Component {
@@ -28,24 +29,28 @@ export default class QuizForm extends Component {
 	addQuiz = (name, addQuiz, nav) => {
 		let { errors, hasErrors } = this.state
 		console.log("STATE", this.state)
-		if (
-			name === "" &&
-			!errors.includes("The quiz name cannot be left empty")
-		) {
-			errors.push("The quiz name cannot be left empty")
+		let valErrors = {
+			empty: "The quiz name cannot be left empty",
+			emptyCon: name === "" && !errors.includes(empty),
+			long: "The quiz name cannot be greated than 40 characters",
+			longCon: name > 40 && !errors.includes(long)
 		}
+		let { empty, long, emptyCon, longCon } = valErrors
 
-		if (
-			name.length > 40 &&
-			!errors.includes("The quiz name cannot be left empty")
-		) {
-			errors.push("The quiz name cannot be greated than 40 characters")
-		}
+		errors = validation(emptyCon, errors, empty)
+		errors = validation(longCon, errors, long)
 
+		// then check in here if the variables are true, to handle the proper logic
 		if (errors.length >= 1) {
 			this.setState({
 				hasErrors: true,
 				errors
+			})
+		} else {
+			// otherwise reset` the state
+			this.setState({
+				hasErrors: false,
+				errors: []
 			})
 		}
 

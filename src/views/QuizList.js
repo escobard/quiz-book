@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 
 import { fetchQuizzes } from "../actions"
 import QuizItem from "../components/QuizItem"
-import { getQuizzes, updateCache } from "../utils"
+import { getQuizzes, updateCache } from "../utils/async"
 
 class QuizList extends Component {
 	constructor(props) {
