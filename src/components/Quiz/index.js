@@ -52,6 +52,7 @@ export default class Quiz extends Component {
 						text={count(currentCard, cardNumber)}
 					/>
 					<Title
+						isSubtitle={true}
 						text={content}
 						addStyles={[styles.title, checkStyles]}
 					/>

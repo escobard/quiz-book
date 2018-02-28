@@ -1,9 +1,13 @@
 import { StyleSheet } from "react-native"
 
-import { space, colors } from "../../styles"
+import { space, colors, fonts } from "../../styles"
 
 export const styles = StyleSheet.create({
-	title: { marginTop: space.xxlrg },
+	title: {
+		height: space.xxxlrg + space.xlrg,
+		marginTop: space.small,
+		fontSize: fonts.smallSub
+	},
 	answer: {
 		color: colors.orange
 	},
