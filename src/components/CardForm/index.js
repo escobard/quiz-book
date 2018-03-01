@@ -2,6 +2,7 @@ import React, { Component } from "react"
 
 import { styles } from "./styles"
 
+import { validation } from "../../utils/validation"
 import { Container, Title, Button, Input, Toggle } from "../Common"
 
 export default class CardForm extends Component {
@@ -9,7 +10,50 @@ export default class CardForm extends Component {
 		question: "",
 		answer: "",
 		correctActive: false,
-		incorrectActive: false
+		incorrectActive: false,
+		hasErrors: false,
+		errors: []
+	}
+
+	questionValidation = (errors, hasErrors, question) => {
+		// this object determines the strings
+		let errorStrings = {
+			empty: "The card question cannot be left empty",
+			long: "The card question cannot be greated than 40 characters"
+		}
+		// this object determines the conditions
+		let errorConditions = {
+			empty: question === "" && !errors.includes(errorStrings.empty),
+			long: question > 40 && !errors.includes(errorStrings.long)
+		}
+		// this array determines the errors
+		let valErrors = [
+			{
+				error: errorStrings.empty,
+				condition: errorConditions.empty
+			},
+			{
+				error: errorStrings.long,
+				condition: errorConditions.long
+			}
+		]
+
+		errors = validation(valErrors, errors)
+		// then check in here if the variables are true, to handle the proper logic
+		if (errors.length >= 1) {
+			this.setState({
+				hasErrors: true,
+				errors
+			})
+			return false
+		} else {
+			// otherwise reset` the state
+			this.setState({
+				hasErrors: false,
+				errors: []
+			})
+			return true
+		}
 	}
 
 	addCard(
@@ -19,23 +63,30 @@ export default class CardForm extends Component {
 		correctActive,
 		incorrectActive,
 		addCard,
-		goBack
+		goBack,
+		errors,
+		hasErrors
 	) {
-		let questions = {
-			question,
-			answer,
-			isCorrect: incorrectActive ? false : true
+		let check = this.questionValidation(errors, hasErrors, question)
+		if (check) {
+			let questions = {
+				question,
+				answer,
+				isCorrect: incorrectActive ? false : true
+			}
+
+			addCard(questions, quizTitle)
+
+			goBack()
 		}
-
-		addCard(questions, quizTitle)
-
-		goBack()
 	}
 
-	cardInput = question => {
+	questionInput = question => {
+		let { errors, hasErrors } = this.state
 		this.setState({
 			question
 		})
+		this.questionValidation(errors, hasErrors, question)
 	}
 
 	correctPress() {
@@ -58,9 +109,31 @@ export default class CardForm extends Component {
 		})
 	}
 
+	showErrors = (errors, hasErrors) => {
+		if (hasErrors === true) {
+			return errors.map((error, index) => {
+				return (
+					<Title
+						key={index}
+						isSubtitle={true}
+						text={error}
+						addStyles={styles.errorMessage}
+					/>
+				)
+			})
+		}
+	}
+
 	render() {
 		let {
-			state: { question, answer, correctActive, incorrectActive },
+			state: {
+				question,
+				answer,
+				correctActive,
+				incorrectActive,
+				errors,
+				hasErrors
+			},
 			props: { goBack, addCard, quizTitle }
 		} = this
 
@@ -74,9 +147,10 @@ export default class CardForm extends Component {
 				<Input
 					input={question}
 					placeholder={"Enter a question"}
-					onChangeText={this.cardInput}
+					onChangeText={this.questionInput}
 					addStyles={styles.addMargin}
 				/>
+				{this.showErrors(errors, hasErrors)}
 				<Input
 					input={answer}
 					placeholder={"Enter the answer to the question"}
@@ -101,7 +175,9 @@ export default class CardForm extends Component {
 							correctActive,
 							incorrectActive,
 							addCard,
-							goBack
+							goBack,
+							errors,
+							hasErrors
 						)
 					}
 				/>

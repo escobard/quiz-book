@@ -27,6 +27,7 @@ export default class QuizForm extends Component {
 		})
 		this.validation(errors, hasErrors, name)
 	}
+
 	validation = (errors, hasErrors, name) => {
 		// this object determines the strings
 		let errorStrings = {
@@ -51,7 +52,6 @@ export default class QuizForm extends Component {
 		]
 
 		errors = validation(valErrors, errors)
-		console.log("VALERRORS", errors)
 		// then check in here if the variables are true, to handle the proper logic
 		if (errors.length >= 1) {
 			this.setState({

@@ -1,8 +1,8 @@
+import { StyleSheet } from "react-native"
 
-import { StyleSheet } from 'react-native'
-
-import { space, common } from '../../styles'
+import { space, common } from "../../styles"
 
 export const styles = StyleSheet.create({
-	addMargin: { marginTop : space.med}
-});
+	addMargin: { marginTop: space.med },
+	errorMessage: common.errorMessage
+})
