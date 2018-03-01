@@ -8,8 +8,8 @@ import { Title, Container, Button } from "../Common"
 const Score = ({ results, goBack, restartQuiz }) => {
 	console.log("results", results)
 
-	let { cardNumber, currentCard } = results
-	let count = cardNumber + " / " + currentCard
+	let { cardNumber, score, currentCard } = results
+	let count =  score + " / " + cardNumber
 
 	// export this into a helper file
 	let scoreMessage = (cardNumber, currentCard) => {

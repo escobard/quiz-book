@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import { styles } from "./styles"
-import { cardCount, count } from "./utils"
+import { cardCount, count, detScore } from "./utils"
 
 import { Title, Container, Button } from "../Common"
 
@@ -15,7 +15,9 @@ export default class Quiz extends Component {
 			showAnswer: false,
 			cardNumber: 0,
 			currentCard: 0,
-			showScore: false
+			showScore: false,
+			cardObject: "",
+			score: 0
 		}
 	}
 
@@ -30,7 +32,8 @@ export default class Quiz extends Component {
 		showAnswer,
 		cardNumber,
 		currentCard,
-		showScore
+		showScore,
+		score
 	) => {
 		// this should be refactored into a separate component in the future
 		return questions.map((item, key) => {
@@ -61,9 +64,9 @@ export default class Quiz extends Component {
 		})
 	}
 
-	renderButtons = (showAnswer, cardNumber, currentCard, goBack) => {
+	renderButtons = (showAnswer, cardNumber, currentCard, goBack, questions) => {
 		let btnContent = showAnswer ? "Show Question" : "Show Answer"
-
+		console.log('QQ', questions)
 		return (
 			<Container>
 				<Button
@@ -74,25 +77,29 @@ export default class Quiz extends Component {
 				<Button
 					text={"Correct"}
 					handler={() =>
-						this.nextCard(showAnswer, cardNumber, currentCard)
+						this.nextCard(showAnswer, cardNumber, currentCard, questions, true)
 					}
 				/>
 
 				<Button
 					text={"Incorrect"}
 					handler={() =>
-						this.nextCard(showAnswer, cardNumber, currentCard)
+						this.nextCard(showAnswer, cardNumber, currentCard, questions)
 					}
 				/>
 			</Container>
 		)
 	}
 
-	nextCard = (showAnswer, cardNumber, currentCard) => {
+	nextCard = (showAnswer, cardNumber, currentCard, questions, element) => {
 		let next = currentCard + 1
-
+		let isRight = detScore(questions, currentCard, element);
 		let showScore = cardCount(cardNumber, currentCard)
-
+		if (isRight) {
+			this.setState({
+				score: this.state.score +1
+			})
+		}
 		this.setState({
 			currentCard: next,
 			showAnswer: false,
@@ -108,9 +115,9 @@ export default class Quiz extends Component {
 
 	renderCard = () => {
 		let { quiz, goBack, restartQuiz } = this.props
-		let { showAnswer, cardNumber, currentCard, showScore } = this.state
+		let { showAnswer, cardNumber, currentCard, showScore, score } = this.state
 		let { title, questions } = quiz
-		console.log("STATE WITHIN CARD", this.state)
+
 		if (showScore) {
 			return (
 				<Score
@@ -126,20 +133,22 @@ export default class Quiz extends Component {
 					questions,
 					showAnswer,
 					cardNumber,
-					currentCard
+					currentCard,
+					score
 				)}
 				{this.renderButtons(
 					showAnswer,
 					cardNumber,
 					currentCard,
 					goBack,
-					restartQuiz
+					questions
 				)}
 			</Container>
 		)
 	}
 
 	render() {
+		console.log('STATE', this.state)
 		return (
 			<Container addStyles={styles.container}>
 				{this.renderCard()}

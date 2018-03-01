@@ -6,3 +6,18 @@ export const cardCount = (cardNumber, currentCard) => {
 
 export const count = (currentCard, cardNumber) =>
 	currentCard + 1 + " / " + cardNumber
+
+export const detScore = (questions, currentCard, element) =>{
+
+	let bool = false
+	questions.forEach((question, index) =>{
+					
+					if (index == currentCard) {
+
+						if (question.isCorrect == element) {
+							bool = true
+						}
+					}
+		})
+	return bool
+}
