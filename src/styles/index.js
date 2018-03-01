@@ -79,7 +79,7 @@ export const common = {
 	errorMessage: {
 		fontSize: fonts.errorMessage,
 		color: colors.red,
-		marginTop: space.med
+		marginTop: space.xsmall
 	},
 	btn: {
 		backgroundColor: colors.purple,

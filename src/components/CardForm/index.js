@@ -11,22 +11,25 @@ export default class CardForm extends Component {
 		answer: "",
 		correctActive: false,
 		incorrectActive: false,
-		hasErrors: false,
-		errors: []
+		hasQuestionErrors: false,
+		hasAnswerErrors: false,
+		questionErrors: [],
+		answerErrors: []
 	}
 
-	questionValidation = (errors, hasErrors, question) => {
+	questionValidation = (questionErrors, hasQuestionErrors, question) => {
 		// this object determines the strings
 		let errorStrings = {
 			empty: "The card question cannot be left empty",
-			long: "The card question cannot be greated than 40 characters"
+			long: "The card question cannot be greated than 100 characters"
 		}
 		// this object determines the conditions
 		let errorConditions = {
-			empty: question === "" && !errors.includes(errorStrings.empty),
-			long: question > 40 && !errors.includes(errorStrings.long)
+			empty:
+				question === "" && !questionErrors.includes(errorStrings.empty),
+			long: question > 100 && !questionErrors.includes(errorStrings.long)
 		}
-		// this array determines the errors
+		// this array determines the questionErrors
 		let valErrors = [
 			{
 				error: errorStrings.empty,
@@ -38,24 +41,64 @@ export default class CardForm extends Component {
 			}
 		]
 
-		errors = validation(valErrors, errors)
+		questionErrors = validation(valErrors, questionErrors)
 		// then check in here if the variables are true, to handle the proper logic
-		if (errors.length >= 1) {
+		if (questionErrors.length >= 1) {
 			this.setState({
-				hasErrors: true,
-				errors
+				hasQuestionErrors: true,
+				questionErrors
 			})
 			return false
 		} else {
 			// otherwise reset` the state
 			this.setState({
-				hasErrors: false,
-				errors: []
+				hasQuestionErrors: false,
+				questionErrors: []
 			})
 			return true
 		}
 	}
 
+	answerValidation = (answerErrors, hasAnswerErrors, answer) => {
+		// this object determines the strings
+		let errorStrings = {
+			empty: "The card answer cannot be left empty",
+			long: "The card answer cannot be greated than 100 characters"
+		}
+		// this object determines the conditions
+		let errorConditions = {
+			empty: answer === "" && !answerErrors.includes(errorStrings.empty),
+			long: answer > 100 && !answerErrors.includes(errorStrings.long)
+		}
+		// this array determines the answerErrors
+		let valErrors = [
+			{
+				error: errorStrings.empty,
+				condition: errorConditions.empty
+			},
+			{
+				error: errorStrings.long,
+				condition: errorConditions.long
+			}
+		]
+
+		answerErrors = validation(valErrors, answerErrors)
+		// then check in here if the variables are true, to handle the proper logic
+		if (answerErrors.length >= 1) {
+			this.setState({
+				hasAnswerErrors: true,
+				answerErrors
+			})
+			return false
+		} else {
+			// otherwise reset` the state
+			this.setState({
+				hasAnswerErrors: false,
+				answerErrors: []
+			})
+			return true
+		}
+	}
 	addCard(
 		question,
 		answer,
@@ -64,11 +107,23 @@ export default class CardForm extends Component {
 		incorrectActive,
 		addCard,
 		goBack,
-		errors,
-		hasErrors
+		questionErrors,
+		answerErrors,
+		hasQuestionErrors,
+		hasAnswerErrors
 	) {
-		let check = this.questionValidation(errors, hasErrors, question)
-		if (check) {
+		let checkQuestion = this.questionValidation(
+			questionErrors,
+			hasQuestionErrors,
+			question
+		)
+		let checkAnswer = this.answerValidation(
+			answerErrors,
+			hasAnswerErrors,
+			answer
+		)
+
+		if (checkQuestion && checkAnswer) {
 			let questions = {
 				question,
 				answer,
@@ -82,11 +137,11 @@ export default class CardForm extends Component {
 	}
 
 	questionInput = question => {
-		let { errors, hasErrors } = this.state
+		let { questionErrors, hasQuestionErrors } = this.state
 		this.setState({
 			question
 		})
-		this.questionValidation(errors, hasErrors, question)
+		this.questionValidation(questionErrors, hasQuestionErrors, question)
 	}
 
 	correctPress() {
@@ -107,11 +162,12 @@ export default class CardForm extends Component {
 		this.setState({
 			answer
 		})
+		this.answerValidation(answerErrors, hasAnswerErrors, answer)
 	}
 
-	showErrors = (errors, hasErrors) => {
-		if (hasErrors === true) {
-			return errors.map((error, index) => {
+	showQuestionErrors = (questionErrors, hasQuestionErrors) => {
+		if (hasQuestionErrors === true) {
+			return questionErrors.map((error, index) => {
 				return (
 					<Title
 						key={index}
@@ -123,7 +179,20 @@ export default class CardForm extends Component {
 			})
 		}
 	}
-
+	showAnswerErrors = (answerErrors, hasAnswerErrors) => {
+		if (hasAnswerErrors === true) {
+			return answerErrors.map((error, index) => {
+				return (
+					<Title
+						key={index}
+						isSubtitle={true}
+						text={error}
+						addStyles={styles.errorMessage}
+					/>
+				)
+			})
+		}
+	}
 	render() {
 		let {
 			state: {
@@ -131,8 +200,10 @@ export default class CardForm extends Component {
 				answer,
 				correctActive,
 				incorrectActive,
-				errors,
-				hasErrors
+				questionErrors,
+				answerErrors,
+				hasQuestionErrors,
+				hasAnswerErrors
 			},
 			props: { goBack, addCard, quizTitle }
 		} = this
@@ -140,23 +211,20 @@ export default class CardForm extends Component {
 		return (
 			<Container formContainer={true}>
 				<Title text={"Create a card"} />
-				<Title
-					isSubtitle={true}
-					text={"Each card must contain an answer and a question"}
-				/>
 				<Input
 					input={question}
 					placeholder={"Enter a question"}
 					onChangeText={this.questionInput}
 					addStyles={styles.addMargin}
 				/>
-				{this.showErrors(errors, hasErrors)}
+				{this.showQuestionErrors(questionErrors, hasQuestionErrors)}
 				<Input
 					input={answer}
 					placeholder={"Enter the answer to the question"}
 					onChangeText={this.answerInput}
 					addStyles={styles.addMargin}
 				/>
+				{this.showAnswerErrors(answerErrors, hasAnswerErrors)}
 				<Toggle
 					text1={"Incorrect"}
 					text2={"Correct"}
@@ -176,8 +244,10 @@ export default class CardForm extends Component {
 							incorrectActive,
 							addCard,
 							goBack,
-							errors,
-							hasErrors
+							questionErrors,
+							answerErrors,
+							hasAnswerErrors,
+							hasQuestionErrors
 						)
 					}
 				/>
