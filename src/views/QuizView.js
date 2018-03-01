@@ -12,7 +12,7 @@ class QuizView extends Component {
 	}
 
 	goBack(nav, quiz) {
-		nav.navigate("QuizDetail", { quiz })
+		nav.navigate("QuizBreakdown", { quiz })
 	}
 
 	restartQuiz(nav, quiz) {

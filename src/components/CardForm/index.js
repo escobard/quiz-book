@@ -159,6 +159,7 @@ export default class CardForm extends Component {
 	}
 
 	answerInput = answer => {
+		let { answerErrors, hasAnswerErrors } = this.state
 		this.setState({
 			answer
 		})

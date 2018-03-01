@@ -16,9 +16,10 @@
 
 ## v0.9
 
+    - COMPLETED:
+        - Basic validation added to both forms
     - TODO:
     	- Add score functionality, incorrect / correct handlers.
-    	- Add validation to both forms
     	- Clean up AsyncStorage promises with redux-thunk
     	- Refactor code to better meet best practices
 
