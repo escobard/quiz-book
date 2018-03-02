@@ -66,7 +66,6 @@ export default class Quiz extends Component {
 
 	renderButtons = (showAnswer, cardNumber, currentCard, goBack, questions) => {
 		let btnContent = showAnswer ? "Show Question" : "Show Answer"
-		console.log('QQ', questions)
 		return (
 			<Container>
 				<Button
@@ -84,7 +83,7 @@ export default class Quiz extends Component {
 				<Button
 					text={"Incorrect"}
 					handler={() =>
-						this.nextCard(showAnswer, cardNumber, currentCard, questions)
+						this.nextCard(showAnswer, cardNumber, currentCard, questions, false)
 					}
 				/>
 			</Container>
@@ -94,6 +93,7 @@ export default class Quiz extends Component {
 	nextCard = (showAnswer, cardNumber, currentCard, questions, element) => {
 		let next = currentCard + 1
 		let isRight = detScore(questions, currentCard, element);
+
 		let showScore = cardCount(cardNumber, currentCard)
 		if (isRight) {
 			this.setState({

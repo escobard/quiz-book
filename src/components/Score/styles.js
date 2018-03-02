@@ -4,7 +4,8 @@ import { space, colors } from "../../styles"
 
 export const styles = StyleSheet.create({
 	title: {
-		height: space.xxxlrg + space.xxxlrg
+		height: space.xxxlrg + space.xlrg
 	},
-	sub: { marginBottom: space.med }
+	sub: { marginBottom: space.med, marginTop: space.small }
+
 })

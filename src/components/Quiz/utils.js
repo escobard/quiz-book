@@ -17,6 +17,9 @@ export const detScore = (questions, currentCard, element) =>{
 						if (question.isCorrect == element) {
 							bool = true
 						}
+						else if (element == false) {
+							bool = true
+						}
 					}
 		})
 	return bool

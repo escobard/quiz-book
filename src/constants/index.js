@@ -5,11 +5,13 @@ export const demoQuizzes = {
     questions: [
       {
         question: "What is React?",
-        answer: "A library for managing user interfaces"
+        answer: "A library for managing user interfaces",
+        isCorrect: true
       },
       {
         question: "Where do you make Ajax requests in React?",
-        answer: "The componentDidMount lifecycle event"
+        answer: "The componentDidMount lifecycle event",
+        isCorrect: true
       }
     ]
   },
@@ -19,7 +21,8 @@ export const demoQuizzes = {
       {
         question: "What is a closure?",
         answer:
-          "The combination of a function and the lexical environment within which that function was declared."
+          "The combination of a function and the lexical environment within which that function was declared.",
+          isCorrect: true
       }
     ]
   }
@@ -31,14 +34,16 @@ export const newTest = {
     questions: [
       {
         question: "What is React?",
-        answer: "A library for managing user interfaces"
+        answer: "A library for managing user interfaces",
+        isCorrect: true
       },
       {
         question: "Where do you make Ajax requests in React?",
-        answer: "The componentDidMount lifecycle event"
+        answer: "The componentDidMount lifecycle event",
+        isCorrect: true
       }
     ]
   }
 }
 
-export const QUIZ_STORAGE_KEY = "QuizBook:quizzes2"
+export const QUIZ_STORAGE_KEY = "QuizBook:quizzes3"
