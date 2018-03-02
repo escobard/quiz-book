@@ -1,61 +1,61 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from "react-native"
 
 export const colors = {
-	purple : '#292477',
-	gray : '#757575',
-	white : '#fff',
-	red : '#b71845',
-	orange : '#f26f28',
-	blue : '#4e4cb8',
-	lightPurp : '#7c53c3',
-	pink : '#b93fb3',
-	green: '#00e500',
-
+	purple: "#292477",
+	gray: "#757575",
+	white: "#fff",
+	red: "#b71845",
+	orange: "#f26f28",
+	blue: "#4e4cb8",
+	lightPurp: "#7c53c3",
+	pink: "#b93fb3",
+	green: "#00e500"
 }
 
 export const fonts = {
-	subtitle : 24,
-	title : 32,
+	error: 14,
+	smallSub: 20,
+	subtitle: 24,
+	title: 32
 }
 
-export const space ={
+export const space = {
 	xxxsmall: 1,
-	xxsmall: 3, 
-	xsmall : 5,
-	small : 10,
-	med : 20,
-	lrg : 30,
-	xlrg : 50,
+	xxsmall: 3,
+	xsmall: 5,
+	small: 10,
+	med: 20,
+	lrg: 30,
+	xlrg: 50,
 	xxlrg: 75,
 	xxxlrg: 100
 }
 
-
-export const common ={
+export const common = {
 	container: {
-	    flex: 1,
-	    backgroundColor: colors.white,
-	    paddingLeft: space.lrg,
-	    paddingRight: space.lrg,
-	    alignItems: 'stretch',
-	    justifyContent: 'center',
+		flex: 1,
+		backgroundColor: colors.white,
+		paddingLeft: space.lrg,
+		paddingRight: space.lrg,
+		alignItems: "stretch",
+		justifyContent: "center"
 	},
 	centeredContainer: {
 		flex: 1,
-		alignItems: 'center',
-		flexDirection: 'column',
-		justifyContent: 'center',
+		alignItems: "center",
+		flexDirection: "column",
+		justifyContent: "center"
 	},
 	toggle: {
-		flexDirection: 'row',
+		flexDirection: "row"
 	},
 	toggleBtn: {
 		flex: 1,
-		borderRadius: 0,
+		borderRadius: 0
 	},
 	correctBtn: {
 		borderColor: colors.green,
-		backgroundColor: colors.green,
+		backgroundColor: colors.green
 	},
 	correctActive: {
 		borderColor: colors.blue
@@ -65,38 +65,41 @@ export const common ={
 	},
 	incorrectBtn: {
 		borderColor: colors.red,
-		backgroundColor: colors.red,
+		backgroundColor: colors.red
 	},
 	title: {
-	    height: space.xlrg,
-	    textAlign: 'center',
-	    fontSize: fonts.title,
+		height: space.xlrg,
+		textAlign: "center",
+		fontSize: fonts.title
 	},
-	subtitle: {  
-	    fontSize: fonts.subtitle,
-	    textAlign: 'center',
+	subtitle: {
+		fontSize: fonts.subtitle,
+		textAlign: "center"
+	},
+	errorMessage: {
+		fontSize: fonts.errorMessage,
+		color: colors.red,
+		marginTop: space.xsmall
 	},
 	btn: {
-	    backgroundColor: colors.purple,
-	    padding: space.small,
-	    justifyContent : 'center',
-	    alignItems: 'center',
-	    borderRadius: space.xxsmall,
-	    marginTop: space.med,
-	    borderWidth: space.xxsmall,
-	    borderColor: colors.purple
+		backgroundColor: colors.purple,
+		padding: space.small,
+		justifyContent: "center",
+		alignItems: "center",
+		borderRadius: space.xxsmall,
+		marginTop: space.med,
+		borderWidth: space.xxsmall,
+		borderColor: colors.purple
 	},
 	btnText: {
-	    color: colors.white,
+		color: colors.white
 	},
 	input: {
-	    height: space.xlrg,
-	    padding: space.small,
-	    borderRadius: space.xxsmall,
-	    borderWidth: space.xxxsmall,
-	    borderColor: colors.darkGray,
-	    alignItems: 'stretch',
-	},
-
+		height: space.xlrg,
+		padding: space.small,
+		borderRadius: space.xxsmall,
+		borderWidth: space.xxxsmall,
+		borderColor: colors.darkGray,
+		alignItems: "stretch"
+	}
 }
-

@@ -79,7 +79,16 @@ $ npm start (or yarn start)
 ```
 
 
-## Most Recent Update - v0.7
+## Most Recent Updates - v0.8
+
+
+##v0.8
+	- COMPLETED:
+		+ configure data flow including:
+			- Data retention each time a new card / deck is added:
+				+ Async storage being updated every state change - need to consider smarter solutions
+		+ fix functionality:
+			- new decks will only display start quiz button when cards are created
 
 ##v0.7
 	- COMPLETED:
@@ -97,26 +106,12 @@ $ npm start (or yarn start)
 			- Score
 			- Quiz view 
 
-##v0.5
-	- COMPLETED:
-		+ refactor component elements for better syntax structure
-		+ style & create navigation for:
-			- QuizDetail view
-			- AddQuiz view
-		
-
-
-## To Do's - v0.8
+## To Do's - v0.9
 	- TODO:
-		+ configure data flow including:
-			- action for storage / fetching from AsyncStorage
-			- Data update each time a new card / deck is added:
-				+ Either have the application update + fetch the stored decks from Async to reload global data
-				+ Or have the application state update every time, and only fetch data form async during init.
-		+ tune some functionality:
-			- Add score functionality / render methods.
-			- Add validation to both forms
-			- Optionally add card deletion / deck deletion mechanisms.
+		- Add score functionality, incorrect / correct handlers.
+		- Add validation to both forms
+		- Clean up AsyncStorage promises with redux-thunk
+		- Refactor code to better meet best practices
 
 ## Known Bugs
 - Application live version showing an error due to bundle.js compression.

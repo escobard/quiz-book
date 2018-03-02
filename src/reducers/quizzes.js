@@ -1,4 +1,3 @@
-import { cache, createCache } from "../utils"
 import {
 	ADD_QUIZ,
 	ADD_CARD,

@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 
 import { fetchQuizzes } from "../actions"
 import QuizItem from "../components/QuizItem"
-import { getQuizzes, updateCache } from "../utils"
+import { getQuizzes, updateCache } from "../utils/async"
 
 class QuizList extends Component {
 	constructor(props) {
@@ -43,7 +43,6 @@ class QuizList extends Component {
 	}
 
 	render() {
-		console.log("this.props.quizzes", this.props.quizzes)
 		if (this.props.quizzes) {
 			let keyedQuizzes = Object.values(this.props.quizzes)
 			return (
