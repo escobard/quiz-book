@@ -45,16 +45,6 @@ Delivery planning:
 
 (Expand upon criteria in a later version)
 
-## Demo
-
-(to be expanded in a future version with the structure below)
-
-![desktop image](https://onlinedevelopers.ca/udacity/weather-app/src/img/read-me/proj5-collage.jpg)
-
-[To view the application live click here] (http://onlinedevelopers.ca/udacity/weather-app/)
-
-To download and install, please follow the instructions below.
-
 ## Installation
 
 (expand on yarn installation, and node.js installation instructions, as well as expo instructions before repository instructions in the future)
